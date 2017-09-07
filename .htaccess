@@ -1,0 +1,27 @@
+
+# 1 Month for most static assets
+<filesMatch ".(jpg|jpeg|png|gif|js|ico|svg)$">
+Header set Cache-Control "max-age=2592000, public"
+</filesMatch>
+
+# 1 day for css and js
+<filesMatch ".(css|js|min.css|min.js)$">
+	Header set Cache-Control "max-age=2592000, public"
+</filesMatch>
+
+<IfModule mod_deflate.c>
+	AddOutputFilterByType DEFLATE text/html
+	AddOutputFilterByType DEFLATE text/css
+	AddOutputFilterByType DEFLATE text/javascript
+	AddOutputFilterByType DEFLATE text/plain
+	AddOutputFilterByType DEFLATE image/x-icon
+	AddOutputFilterByType DEFLATE image/svg+xml
+	AddOutputFilterByType DEFLATE application/rss+xml
+	AddOutputFilterByType DEFLATE application/javascript
+	AddOutputFilterByType DEFLATE application/x-javascript
+</IfModule>
+
+<FilesMatch "\.(ico|pdf|jpg|jpeg|png|js|css)(\.gz)?$">
+	Header unset ETag
+	FileETag None
+</FilesMatch>
