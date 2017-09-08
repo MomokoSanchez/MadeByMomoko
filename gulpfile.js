@@ -65,10 +65,6 @@ gulp.task('copy', function() {
 
     gulp.src(['node_modules/popper.js/dist/popper.min.js'])
         .pipe(gulp.dest('js'))
-
-    gulp.src([
-            'node_modules/font-awesome/fonts/**.*'])
-        .pipe(gulp.dest('fonts'))
 })
 
 // Run everything

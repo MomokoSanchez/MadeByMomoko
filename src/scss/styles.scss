@@ -1,0 +1,184 @@
+/*************************
+** styles madebymomoko 	**
+*************************/
+@import "variables.scss";
+@import "mixins.scss";
+
+//Global components
+
+div[class^="col-"]{
+	@media(min-width: 992px){
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}
+
+h1{
+	@include headerfont;
+	font-size: $h1-desktop;
+	margin-bottom: 22px;
+
+	@media (max-width: $max-tablet){
+		font-size: $h1-tablet;
+		margin-bottom: 15px;
+	}
+
+	&::after{
+		background: $main-color;
+	    content: "";
+	    display: block;
+	    width: 40px;
+	    height: 4px;
+	    margin-top: 17px;
+
+	    @media (max-width: $max-tablet){
+	    	margin-top: 12px;
+	    }
+	}
+}
+
+
+h3{
+	@include headerfont;
+	font-size: $h3-desktop;
+	margin-bottom: 12px;
+
+	@media (max-width: $max-tablet){
+		font-size: $h3-tablet;
+		margin-bottom: 10px;
+	}
+}
+
+p{
+	@include textfont;
+	font-size: $p-desktop;
+	margin-bottom: 21px;
+
+	@media (max-width: $max-tablet){
+		font-size: $p-tablet;
+		margin-bottom: 18px;
+	}
+}
+
+section:nth-child(odd){
+	background-color: $background-color;
+}
+
+.container, .container-fluid{
+	//padding is double the height of h1
+	padding-top: 85px;
+	padding-bottom: 75px;
+
+	@media (max-width: $max-tablet){
+		padding-top: 61px;
+		padding-bottom: 53px;
+	}
+}
+
+.fa{
+	color: $main-color;
+	margin-bottom: 5px;
+}
+
+//HELPER CLASSES
+
+//find responsive solution
+.last-elem{
+	margin-bottom: 0;
+}
+
+//SECTION STYLES
+
+//home
+.home{
+	background-color: green !important;
+
+	.outerBox{
+		background: rgba(255,255,255,0.5);
+		padding: 20px;
+
+		.innerBox{
+			background: rgba(255,255,255,0.5);	
+			margin-top: -40px;
+			margin-left: -40px;	
+			padding-top: 80px;
+			padding-left: 20px;
+			padding-bottom: 40px;
+		}
+	}
+
+	h1{
+		&::after{
+			background: $main-color;
+		    content: "";
+		    display: block;
+		    width: 40px;
+		    height: 4px;
+		    margin: 0 auto;
+		    margin-top: 17px;
+
+		    @media (max-width: $max-tablet){
+		    	margin-top: 12px;
+		    }
+		}
+
+		&:nth-child(2)::after{
+			content: none;
+		}
+	}
+}
+
+
+//ioffer
+.iofferImg{
+	height: 40vh;
+	background-image: url('../img/seedling.jpeg');
+	@include full-bg-img;
+    background-attachment: fixed;
+}
+
+
+//portfolio
+.portfolio{
+	.imgContainer{
+		padding-top: 0;
+
+		.portfolioImg{
+			height: 14.65vw;
+			@include full-bg-img;
+
+			&.img1{
+				background-image: url('../img/portfolio/askarizeren.jpg');
+			}
+			&.img2{
+				background-image: url('../img/portfolio/vertemo.jpg');
+			}
+			&.img3{
+				background-image: url('../img/portfolio/askarizeren.jpg');
+			}
+			&.img4{
+				background-image: url('../img/portfolio/vertemo.jpg');
+			}
+		}
+	}
+}
+
+//contact
+.contactImg{
+	height: 40vh;
+	background-image: url('../img/write_mail.jpg');
+	@include full-bg-img;
+    background-attachment: fixed;
+}
+
+//impressum
+.impressum{
+	.container{
+		padding-top: 20px;
+		padding-bottom: 20px;
+
+		p{
+			margin: 0;
+		}
+	}
+}

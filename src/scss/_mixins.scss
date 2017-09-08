@@ -1,0 +1,43 @@
+//Some standard styles
+
+
+//Fonts
+//for working without internet
+/*
+@font-face {
+    font-family: 'UbuntuLight';
+    src: url('./fonts/ubuntu-light-webfont.eot'); 
+    src: url('./fonts/ubuntu-light-webfont.eot?#iefix') format('embedded-opentype'), 
+         url('./fonts/ubuntu-light-webfont.woff') format('woff'),
+         url('./fonts/Ubuntu-Light.ttf')  format('truetype'),
+         url('./fonts/ubuntu-light-webfont.svg#ubuntulight') format('svg');
+  	font-style: normal;
+  	font-weight: light;
+}
+
+@font-face {
+    font-family: 'Dosis';
+    src: url('./fonts/dosis-regular-webfont.eot');
+    src: url('./fonts/dosis-regular-webfont.eot?#iefix') format('embedded-opentype'), 
+        url('./fonts/dosis-regular-webfont.woff') format('woff'), 
+        url('./fonts/dosis-regular.ttf')  format('truetype'),
+        url('./fonts/dosis-regular-webfont.svg#ubuntulight') format('svg');
+  	font-style: normal;
+  	font-weight: normal;
+}
+*/
+
+
+@mixin headerfont{
+	font-family: 'dosis', 'Arial Black', sans-serif;
+}
+
+@mixin textfont{
+	font-family: 'Ubuntu', Arial, sans-serif;
+}
+
+@mixin full-bg-img {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
