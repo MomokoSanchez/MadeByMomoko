@@ -15,8 +15,25 @@
   </head>
   <body>
 
+    <!-- Navigation  -->
+  <nav class="navbar navbar-toggleable-sm fixed-top navbar-light">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ml-auto">
+        <a class="nav-item nav-link active" href="#home">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="#icando">I can do</a>
+        <a class="nav-item nav-link" href="#ioffer">I offer</a>
+        <a class="nav-item nav-link" href="#portfolio">Portfolio</a>
+        <a class="nav-item nav-link" href="#toolbox">Toolbox</a>
+        <a class="nav-item nav-link" href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
     <!-- home block -->
-    <section class="home">
+    <header id="home">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-6 text-center">
@@ -29,10 +46,10 @@
           </div>
         </div>
       </div>
-    </section>
+    </header>
 
     <!-- ido block -->
-    <section class="icando">
+    <section id="icando">
       <div class="container">
         <div class="row">
           <div class="col-lg-5 col-12">
@@ -78,11 +95,11 @@
     </section>
 
     <!-- ioffer block -->
-    <section class="iofferImg"></section>
-    <section class="ioffer">
+    <section id="iofferImg"></section>
+    <section id="ioffer">
       <div class="container">
         <div class="row">
-          <div class="col-6">
+          <div class="col-md-8 col-12">
             <h1>I OFFER</h1>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam placerat sem et quam ornare hendrerit. Quisque vel diam eget leo consectetur consequat. Sed id lorem dapibus, finibus felis a, ornare justo. Praesent vel ultrices est. Quisque eu luctus nibh. Praesent tempus hendrerit ex eu pellentesque. Vivamus volutpat neque sed ipsum efficitur, aliquet blandit sem vehicula. Nunc consequat turpis sed ipsum efficitur, in pharetra mauris convallis. 
@@ -95,7 +112,7 @@
     </section>
 
     <!-- portfolio block -->
-    <section class="portfolio">
+    <section id="portfolio">
       <div class="container">
         <div class="row">
           <div class="col">
@@ -105,55 +122,106 @@
       </div>
       <div class="container-fluid imgContainer">
         <div class="row">
-          <div class="col portfolioImg img1">
+          <div id="item1" class="col portfolioImg">
           </div>
-          <div class="col portfolioImg img2">
+          <div id="item2" class="col portfolioImg">
           </div>
-          <div class="col portfolioImg img3">
+          <div id="item3" class="col portfolioImg">
           </div>
-          <div class="col portfolioImg img4">
+          <div id="item4" class="col portfolioImg">
           </div>
         </div>
       </div>
     </section>
 
     <!-- toolbox block -->  
-    <section class="toolbox">
+    <section id="toolbox">
       <div class="container">
         <div class="row">
-          <div class="col-6">
+          <div class="col-md-8 col-12">
             <h1>MY TOOLBOX</h1>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam placerat sem et quam ornare hendrerit. Quisque vel diam eget leo consectetur consequat. Sed id lorem dapibus, finibus felis a, ornare justo. Praesent vel ultrices est. Quisque eu luctus nibh. Praesent tempus hendrerit ex eu pellentesque. Vivamus volutpat neque sed ipsum efficitur, aliquet blandit sem vehicula. Nunc consequat turpis sed ipsum efficitur, in pharetra mauris convallis. 
             </p>
+          </div>
+          <div class="col-12 col-sm-11 col-md-12 imgBox">
+            <img src="img/Icons/HTML5_Logo_512-blass.png" alt="HTML5" class="cover">
+            <img src="img/Icons/HTML5_Logo_512.png" class="unCover">
+            <img src="img/Icons/css3-blass.png" alt="CSS3" class="cover">
+            <img src="img/Icons/css3.png" class="unCover">
+            <img src="img/Icons/Javascript-shield-blass.png" alt="Javascript" class="cover">
+            <img src="img/Icons/Javascript-shield.png" class="unCover">
+            <img src="img/Icons/Boostrap_logo-blass.png" alt="Twitter Boostrap" class="cover">
+            <img src="img/Icons/Boostrap_logo.png" class="unCover">
+            <img src="img/Icons/wordpress-blass.png" alt="Wordpress" class="cover">
+            <img src="img/Icons/wordpress.png" class="unCover">
+            <img src="img/Icons/GitHub-Mark-120px-plus-blass.png" alt="Github" class="cover">
+            <img src="img/Icons/GitHub-Mark-120px-plus.png" class="unCover">
+            <img src="img/Icons/Google-Analytics-icon-blass.png" alt="Google Analytics" class="cover">
+            <img src="img/Icons/Google-Analytics-icon.png" class="unCover">
+            <img src="img/Icons/rpicon_u7-blass.png" alt="Axure" class="cover">
+            <img src="img/Icons/rpicon_u7.png" class="unCover">
+            <img src="img/Icons/Adobe_Photoshop_CS6_icon-blass.png" alt="Photoshop" class="cover">
+            <img src="img/Icons/Adobe_Photoshop_CS6_icon.png" class="unCover">
           </div>
         </div>
       </div>
     </section>
 
     <!-- contact block --> 
-    <section class="contactImg"></section>
-    <section class="contact">
+    <section id="contactImg"></section>
+    <section id="contact">
       <div class="container">
         <div class="row">
-          <div class="col-5">
+          <div class="col-md-8 col-12">
             <h1>CONTACT</h1>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam placerat sem et quam ornare hendrerit. Quisque vel diam eget leo consectetur consequat. Sed id lorem dapibus, finibus felis a, ornare justo. Praesent vel ultrices est. Quisque eu luctus nibh. Praesent tempus hendrerit ex eu pellentesque. 
             </p>
-            <h3>MAIL@MADEBYMOMOKO.COM</h3>
+            <a href="mailto:mail@madebymomoko.com"><h3>MAIL@MADEBYMOMOKO.COM</h3></a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Impressum block --> 
-    <section class="impressum">
+    <section id="impressum">
       <div class="container">
         <div class="row">
           <div class="col-12 text-center">
             <p>
               Impressum
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Blocks -->
+
+    <section id="portfolioitem1" class="portfolioPage hidden">
+      <div class="container">
+
+        <div class="close">
+          <div class="closeLeft">
+            <div class="closeRight">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 col-12">
+            <h1>VERTEMO</h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam placerat sem et quam ornare hendrerit. Quisque vel diam eget leo consectetur consequat. Sed id lorem dapibus, finibus felis a, ornare justo. Praesent vel ultrices est. Quisque eu luctus nibh. Praesent tempus hendrerit ex eu pellentesque. 
+            </p>
+            <h3>MADE WITH</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam placerat sem et quam ornare hendrerit. Quisque vel diam eget leo consectetur consequat. Sed id lorem dapibus, finibus felis a, ornare justo. Praesent vel ultrices est. Quisque eu luctus nibh. Praesent tempus hendrerit ex eu pellentesque. 
+            </p>
+            <h3>RESULTS</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam placerat sem et quam ornare hendrerit. Quisque vel diam eget leo consectetur consequat. Sed id lorem dapibus, finibus felis a, ornare justo. Praesent vel ultrices est. Quisque eu luctus nibh. Praesent tempus hendrerit ex eu pellentesque. 
             </p>
           </div>
         </div>

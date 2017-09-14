@@ -82,6 +82,11 @@ section:nth-child(odd) {
       padding-top: 61px;
       padding-bottom: 53px; } }
 
+@media (max-width: 543px) {
+  .container {
+    padding-left: 10%;
+    padding-right: 10%; } }
+
 .fa {
   color: #D2B356;
   margin-bottom: 5px; }
@@ -89,19 +94,25 @@ section:nth-child(odd) {
 .last-elem {
   margin-bottom: 0; }
 
-.home {
+.hidden {
+  display: none; }
+
+.blur {
+  filter: blur(5px); }
+
+#home {
   background-color: green !important; }
-  .home .outerBox {
+  #home .outerBox {
     background: rgba(255, 255, 255, 0.5);
     padding: 20px; }
-    .home .outerBox .innerBox {
+    #home .outerBox .innerBox {
       background: rgba(255, 255, 255, 0.5);
       margin-top: -40px;
       margin-left: -40px;
       padding-top: 80px;
       padding-left: 20px;
       padding-bottom: 40px; }
-  .home h1::after {
+  #home h1::after {
     background: #D2B356;
     content: "";
     display: block;
@@ -110,12 +121,12 @@ section:nth-child(odd) {
     margin: 0 auto;
     margin-top: 17px; }
     @media (max-width: 767px) {
-      .home h1::after {
+      #home h1::after {
         margin-top: 12px; } }
-  .home h1:nth-child(2)::after {
+  #home h1:nth-child(2)::after {
     content: none; }
 
-.iofferImg {
+#iofferImg {
   height: 40vh;
   background-image: url("../img/seedling.jpeg");
   background-position: center center;
@@ -123,23 +134,80 @@ section:nth-child(odd) {
   background-repeat: no-repeat;
   background-attachment: fixed; }
 
-.portfolio .imgContainer {
+#portfolio .imgContainer {
   padding-top: 0; }
-  .portfolio .imgContainer .portfolioImg {
+  #portfolio .imgContainer .portfolioImg {
     height: 14.65vw;
+    margin-bottom: 43px;
+    cursor: pointer;
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat; }
-    .portfolio .imgContainer .portfolioImg.img1 {
+    #portfolio .imgContainer .portfolioImg#item1 {
       background-image: url("../img/portfolio/askarizeren.jpg"); }
-    .portfolio .imgContainer .portfolioImg.img2 {
+    #portfolio .imgContainer .portfolioImg#item2 {
       background-image: url("../img/portfolio/vertemo.jpg"); }
-    .portfolio .imgContainer .portfolioImg.img3 {
+    #portfolio .imgContainer .portfolioImg#item3 {
       background-image: url("../img/portfolio/askarizeren.jpg"); }
-    .portfolio .imgContainer .portfolioImg.img4 {
+    #portfolio .imgContainer .portfolioImg#item4 {
       background-image: url("../img/portfolio/vertemo.jpg"); }
+    @media (max-width: 767px) {
+      #portfolio .imgContainer .portfolioImg {
+        height: 29.38vw;
+        margin-bottom: 29px; }
+        #portfolio .imgContainer .portfolioImg#item1 {
+          background-image: url("../img/portfolio/askarizeren_tablet.jpg"); }
+        #portfolio .imgContainer .portfolioImg#item2 {
+          background-image: url("../img/portfolio/vertemo_tablet.jpg"); }
+        #portfolio .imgContainer .portfolioImg#item3 {
+          background-image: url("../img/portfolio/askarizeren_tablet.jpg"); }
+        #portfolio .imgContainer .portfolioImg#item4 {
+          background-image: url("../img/portfolio/vertemo_tablet.jpg"); } }
+    @media (max-width: 543px) {
+      #portfolio .imgContainer .portfolioImg {
+        height: 40.19vw; }
+        #portfolio .imgContainer .portfolioImg#item1 {
+          background-image: url("../img/portfolio/askarizeren_mobile.jpg"); }
+        #portfolio .imgContainer .portfolioImg#item2 {
+          background-image: url("../img/portfolio/vertemo_mobile.jpg"); }
+        #portfolio .imgContainer .portfolioImg#item3 {
+          background-image: url("../img/portfolio/askarizeren_mobile.jpg"); }
+        #portfolio .imgContainer .portfolioImg#item4 {
+          background-image: url("../img/portfolio/vertemo_mobile.jpg"); } }
 
-.contactImg {
+#toolbox .imgBox {
+  margin-top: 20px; }
+  #toolbox .imgBox img {
+    width: 10%;
+    padding-right: 20px;
+    float: left; }
+    @media (max-width: 767px) {
+      #toolbox .imgBox img {
+        width: 16%; } }
+    @media (max-width: 543px) {
+      #toolbox .imgBox img {
+        width: 32%;
+        padding-bottom: 20px; } }
+    #toolbox .imgBox img.cover {
+      display: block; }
+    #toolbox .imgBox img.unCover {
+      opacity: 0;
+      margin-left: -10%;
+      -webkit-transition: 0.8s opacity;
+      -moz-transition: 0.8s opacity;
+      -ms-transition: 0.8s opacity;
+      -o-transition: 0.8s opacity;
+      transition: 0.8s opacity; }
+      @media (max-width: 767px) {
+        #toolbox .imgBox img.unCover {
+          margin-left: -16%; } }
+      @media (max-width: 543px) {
+        #toolbox .imgBox img.unCover {
+          margin-left: -32%; } }
+    #toolbox .imgBox img.unCover:hover {
+      opacity: 1; }
+
+#contactImg {
   height: 40vh;
   background-image: url("../img/write_mail.jpg");
   background-position: center center;
@@ -147,8 +215,49 @@ section:nth-child(odd) {
   background-repeat: no-repeat;
   background-attachment: fixed; }
 
-.impressum .container {
+#impressum .container {
   padding-top: 20px;
   padding-bottom: 20px; }
-  .impressum .container p {
+  #impressum .container p {
     margin: 0; }
+
+.portfolioPage {
+  background-color: rgba(255, 255, 255, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  z-index: 1040;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  filter: blur(0); }
+  .portfolioPage .close {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    background-color: transparent;
+    top: 25px;
+    right: 25px;
+    cursor: pointer; }
+    .portfolioPage .close .closeLeft {
+      height: 75px;
+      width: 1px;
+      margin-left: 35px;
+      background-color: #222;
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg);
+      z-index: 1051; }
+      .portfolioPage .close .closeLeft .closeRight {
+        height: 75px;
+        width: 1px;
+        background-color: #222;
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        transform: rotate(90deg);
+        z-index: 1052; }

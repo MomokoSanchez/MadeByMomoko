@@ -75,6 +75,13 @@ section:nth-child(odd){
 	}
 }
 
+.container{
+	@media (max-width: $max-mobile){
+		padding-left: 10%;
+		padding-right: 10%;
+	}
+}
+
 .fa{
 	color: $main-color;
 	margin-bottom: 5px;
@@ -87,10 +94,18 @@ section:nth-child(odd){
 	margin-bottom: 0;
 }
 
+.hidden{
+	display: none;
+}
+
+.blur{
+	filter: blur(5px);
+}
+
 //SECTION STYLES
 
 //home
-.home{
+#home{
 	background-color: green !important;
 
 	.outerBox{
@@ -130,7 +145,7 @@ section:nth-child(odd){
 
 
 //ioffer
-.iofferImg{
+#iofferImg{
 	height: 40vh;
 	background-image: url('../img/seedling.jpeg');
 	@include full-bg-img;
@@ -139,32 +154,115 @@ section:nth-child(odd){
 
 
 //portfolio
-.portfolio{
+#portfolio{
 	.imgContainer{
 		padding-top: 0;
 
 		.portfolioImg{
 			height: 14.65vw;
+			margin-bottom: 43px;
+	    	cursor: pointer;
 			@include full-bg-img;
 
-			&.img1{
+			&#item1{
 				background-image: url('../img/portfolio/askarizeren.jpg');
 			}
-			&.img2{
+			&#item2{
 				background-image: url('../img/portfolio/vertemo.jpg');
 			}
-			&.img3{
+			&#item3{
 				background-image: url('../img/portfolio/askarizeren.jpg');
 			}
-			&.img4{
+			&#item4{
 				background-image: url('../img/portfolio/vertemo.jpg');
+			}
+
+			@media(max-width: $max-tablet){
+			
+				height: 29.38vw;
+				margin-bottom: 29px;
+
+				&#item1{
+					background-image: url('../img/portfolio/askarizeren_tablet.jpg');
+				}
+				&#item2{
+					background-image: url('../img/portfolio/vertemo_tablet.jpg');
+				}
+				&#item3{
+					background-image: url('../img/portfolio/askarizeren_tablet.jpg');
+				}
+				&#item4{
+					background-image: url('../img/portfolio/vertemo_tablet.jpg');
+				}
+			}
+
+			@media(max-width: $max-mobile){
+
+				height: 40.19vw;
+
+				&#item1{
+					background-image: url('../img/portfolio/askarizeren_mobile.jpg');
+				}
+				&#item2{
+					background-image: url('../img/portfolio/vertemo_mobile.jpg');
+				}
+				&#item3{
+					background-image: url('../img/portfolio/askarizeren_mobile.jpg');
+				}
+				&#item4{
+					background-image: url('../img/portfolio/vertemo_mobile.jpg');
+				}
 			}
 		}
 	}
 }
 
+
+//toolbox
+#toolbox{
+	.imgBox{ 
+		margin-top: 20px;
+
+		img{
+			width: 10%;
+			padding-right: 20px;
+			float: left;
+
+			@media(max-width: $max-tablet){
+				width: 16%;
+			}
+
+			@media(max-width: $max-mobile){
+				width: 32%;
+				padding-bottom: 20px;
+			}
+
+			&.cover{
+				display: block;
+			}
+			&.unCover{
+				opacity: 0;
+				margin-left: -10%;
+				@include transition(0.8s opacity);
+
+				@media(max-width: $max-tablet){
+					margin-left: -16%;
+				}
+
+				@media(max-width: $max-mobile){
+					margin-left: -32%;
+				}
+			}
+			&.unCover:hover{
+				opacity: 1;
+			}
+		}
+	}
+}
+
+
 //contact
-.contactImg{
+#contactImg{
 	height: 40vh;
 	background-image: url('../img/write_mail.jpg');
 	@include full-bg-img;
@@ -172,7 +270,7 @@ section:nth-child(odd){
 }
 
 //impressum
-.impressum{
+#impressum{
 	.container{
 		padding-top: 20px;
 		padding-bottom: 20px;
@@ -181,4 +279,45 @@ section:nth-child(odd){
 			margin: 0;
 		}
 	}
+}
+
+//PORTFOLIO STYLES
+.portfolioPage{
+	background-color: rgba(255,255,255,0.7);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100%;
+	z-index: 1040;
+    overflow-y:scroll;
+    overflow-x:hidden;
+	filter: blur(0);
+
+    .close{    
+    	position: absolute;
+	    width: 75px;
+	    height: 75px;
+	    background-color: transparent;
+	    top: 25px;
+	    right: 25px;
+	    cursor: pointer;
+
+    	.closeLeft{
+    		height: 75px;
+		    width: 1px;
+		    margin-left: 35px;
+		    background-color: #222;
+			@include transform( rotate(45deg) ); 
+		    z-index: 1051;
+
+    		.closeRight{
+			    height: 75px;
+			    width: 1px;
+			    background-color: #222;
+			    @include transform( rotate(90deg) ); 
+			    z-index: 1052;
+    		}
+    	}
+    }
 }

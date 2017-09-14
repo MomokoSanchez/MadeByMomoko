@@ -54,6 +54,7 @@ gulp.task('minify-js', function() {
 
 // Copy vendor libraries from /node_modules into /vendor
 gulp.task('copy', function() {
+    //careful, this seems to be another version, now replaced with online version 
     gulp.src(['node_modules/bootstrap/dist/css/bootstrap.min.css'])
         .pipe(gulp.dest('css'))
 
@@ -63,12 +64,16 @@ gulp.task('copy', function() {
     gulp.src(['node_modules/bootstrap/dist/js/bootstrap.min.js'])
         .pipe(gulp.dest('js'))
 
+    //careful, this seems to be another version, now replaced with online version
     gulp.src(['node_modules/popper.js/dist/popper.min.js'])
         .pipe(gulp.dest('js'))
 })
 
+//Initialize 
+gulp.task('init', ['sass', 'minify-css', 'minify-js', 'copy']);
+
 // Run everything
-gulp.task('default', ['sass', 'minify-css', 'minify-js', 'copy']);
+gulp.task('default', ['sass', 'minify-css', 'minify-js']);
 
 // Configure the browserSync task
 gulp.task('browserSync', function() {
