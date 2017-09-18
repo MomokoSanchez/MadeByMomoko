@@ -13,6 +13,14 @@ div[class^="col-"]{
 	}
 }
 
+body{
+	position: relative;
+}
+
+nav, header, section{
+	@include transition(filter 1s);
+}
+
 h1{
 	@include headerfont;
 	font-size: $h1-desktop;
@@ -102,43 +110,80 @@ section:nth-child(odd){
 	filter: blur(5px);
 }
 
+//NAVIGATION STYLES
+.navbar{
+	padding: 0;
+
+	.navbar-toggler{
+		margin: .5rem 0;
+	}
+
+	.navbar-collapse{
+
+		.navbar-nav{
+			background: rgba(255,255,255,0.5);
+			padding: 0.5rem 1rem;
+		}
+
+		@media(min-width: $min-desktop){
+
+	    	.navbar-nav{
+				padding: 1rem 0 1rem 1rem;
+	    	}
+
+			a{
+				background: rgba(255,255,255,0.5);
+			    margin: -15px 0 -30px;
+			    padding-bottom: 25px;
+			}
+		}
+	}
+}
+
 //SECTION STYLES
 
 //home
 #home{
-	background-color: green !important;
+	height: 70vh; //remember iPhone 5
+	background: url('../img/home_bg.jpg');
+	@include full-bg-img;
+    background-attachment: fixed;
 
-	.outerBox{
-		background: rgba(255,255,255,0.5);
-		padding: 20px;
+	.container{
+		padding-top: calc(35vh - 135px);
 
-		.innerBox{
-			background: rgba(255,255,255,0.5);	
-			margin-top: -40px;
-			margin-left: -40px;	
-			padding-top: 80px;
-			padding-left: 20px;
-			padding-bottom: 40px;
-		}
-	}
+		.outerBox{
+			background: rgba(255,255,255,0.5);
+			padding: 17px;
 
-	h1{
-		&::after{
-			background: $main-color;
-		    content: "";
-		    display: block;
-		    width: 40px;
-		    height: 4px;
-		    margin: 0 auto;
-		    margin-top: 17px;
-
-		    @media (max-width: $max-tablet){
-		    	margin-top: 12px;
-		    }
+			.innerBox{
+				background: rgba(255,255,255,0.5);	
+				margin-top: -35px;
+				margin-left: -35px;	
+				padding-top: 80px;
+				padding-left: 20px;
+				padding-bottom: 40px;
+			}
 		}
 
-		&:nth-child(2)::after{
-			content: none;
+		h1{
+			&::after{
+				background: $main-color;
+			    content: "";
+			    display: block;
+			    width: 40px;
+			    height: 4px;
+			    margin: 0 auto;
+			    margin-top: 17px;
+
+			    @media (max-width: $max-tablet){
+			    	margin-top: 12px;
+			    }
+			}
+
+			&:nth-child(2)::after{
+				content: none;
+			}
 		}
 	}
 }
@@ -158,59 +203,80 @@ section:nth-child(odd){
 	.imgContainer{
 		padding-top: 0;
 
-		.portfolioImg{
+		.row{
 			height: 14.65vw;
-			margin-bottom: 43px;
-	    	cursor: pointer;
-			@include full-bg-img;
-
-			&#item1{
-				background-image: url('../img/portfolio/askarizeren.jpg');
-			}
-			&#item2{
-				background-image: url('../img/portfolio/vertemo.jpg');
-			}
-			&#item3{
-				background-image: url('../img/portfolio/askarizeren.jpg');
-			}
-			&#item4{
-				background-image: url('../img/portfolio/vertemo.jpg');
-			}
+			padding-bottom: 75px;
+			@include box-shadow( 0 5px 20px 0 #7d7c7c );
 
 			@media(max-width: $max-tablet){
-			
 				height: 29.38vw;
-				margin-bottom: 29px;
-
-				&#item1{
-					background-image: url('../img/portfolio/askarizeren_tablet.jpg');
-				}
-				&#item2{
-					background-image: url('../img/portfolio/vertemo_tablet.jpg');
-				}
-				&#item3{
-					background-image: url('../img/portfolio/askarizeren_tablet.jpg');
-				}
-				&#item4{
-					background-image: url('../img/portfolio/vertemo_tablet.jpg');
-				}
+			}
+			@media(max-width: $max-mobile){
+				height: 40.19vw;
 			}
 
-			@media(max-width: $max-mobile){
-
-				height: 40.19vw;
+			.portfolioImg{
+				height: 14.65vw;
+				margin-bottom: 43px;
+		    	cursor: pointer;
+				@include full-bg-img;
+				@include transition(all 0.5s);
 
 				&#item1{
-					background-image: url('../img/portfolio/askarizeren_mobile.jpg');
+					background-image: url('../img/portfolio/bragi_thedash.jpg');
 				}
 				&#item2{
-					background-image: url('../img/portfolio/vertemo_mobile.jpg');
+					background-image: url('../img/portfolio/vertemo.jpg');
 				}
 				&#item3{
-					background-image: url('../img/portfolio/askarizeren_mobile.jpg');
+					background-image: url('../img/portfolio/askarizeren.jpg');
 				}
 				&#item4{
-					background-image: url('../img/portfolio/vertemo_mobile.jpg');
+					background-image: url('../img/portfolio/vertemo.jpg');
+				}
+
+				@media(max-width: $max-tablet){
+				
+					height: 29.38vw;
+					margin-bottom: 29px;
+
+					&#item1{
+						background-image: url('../img/portfolio/bragi_thedash_tablet.jpg');
+					}
+					&#item2{
+						background-image: url('../img/portfolio/vertemo_tablet.jpg');
+					}
+					&#item3{
+						background-image: url('../img/portfolio/askarizeren_tablet.jpg');
+					}
+					&#item4{
+						background-image: url('../img/portfolio/vertemo_tablet.jpg');
+					}
+				}
+
+				@media(max-width: $max-mobile){
+
+					height: 40.19vw;
+
+					&#item1{
+						background-image: url('../img/portfolio/bragi_thedash_mobile.jpg');
+					}
+					&#item2{
+						background-image: url('../img/portfolio/vertemo_mobile.jpg');
+					}
+					&#item3{
+						background-image: url('../img/portfolio/askarizeren_mobile.jpg');
+					}
+					&#item4{
+						background-image: url('../img/portfolio/vertemo_mobile.jpg');
+					}
+				}
+
+				//change size on hover
+				&.col-4{
+					height: 19.33vw;
+					margin-top: -2.5vw;
+					@include box-shadow( 20px 15px 35px 6px #bfbfbf );
 				}
 			}
 		}
@@ -300,7 +366,7 @@ section:nth-child(odd){
 	    height: 75px;
 	    background-color: transparent;
 	    top: 25px;
-	    right: 25px;
+	    right: 0;
 	    cursor: pointer;
 
     	.closeLeft{
@@ -319,5 +385,10 @@ section:nth-child(odd){
 			    z-index: 1052;
     		}
     	}
+    }
+
+    .itemWebsite img{
+    	width: 100%;
+    	padding: 70px 0 0 70px;
     }
 }

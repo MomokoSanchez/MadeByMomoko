@@ -42,7 +42,7 @@
     background-repeat: no-repeat;
 }
 
-@mixin transition($transition...) {
+@mixin transition($transition...){
   -webkit-transition: $transition;
   -moz-transition:  $transition;
   -ms-transition:   $transition;
@@ -50,10 +50,16 @@
   transition:     $transition;
 }
 
-@mixin transform($transform...) {
+@mixin transform($transform...){
   -webkit-transform:  $transform;
   -moz-transform:     $transform;
   -ms-transform:    $transform;
   -o-transform:       $transform;
   transform:          $transform;
+}
+
+@mixin box-shadow($shadow...){
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow:    $shadow;
+  box-shadow:         $shadow;
 }

@@ -34,6 +34,16 @@
     padding-left: 20px;
     padding-right: 20px; } }
 
+body {
+  position: relative; }
+
+nav, header, section {
+  -webkit-transition: filter 1s;
+  -moz-transition: filter 1s;
+  -ms-transition: filter 1s;
+  -o-transition: filter 1s;
+  transition: filter 1s; }
+
 h1 {
   font-family: 'dosis', 'Arial Black', sans-serif;
   font-size: 39px;
@@ -100,31 +110,53 @@ section:nth-child(odd) {
 .blur {
   filter: blur(5px); }
 
-#home {
-  background-color: green !important; }
-  #home .outerBox {
+.navbar {
+  padding: 0; }
+  .navbar .navbar-toggler {
+    margin: .5rem 0; }
+  .navbar .navbar-collapse .navbar-nav {
     background: rgba(255, 255, 255, 0.5);
-    padding: 20px; }
-    #home .outerBox .innerBox {
+    padding: 0.5rem 1rem; }
+  @media (min-width: 768px) {
+    .navbar .navbar-collapse .navbar-nav {
+      padding: 1rem 0 1rem 1rem; }
+    .navbar .navbar-collapse a {
       background: rgba(255, 255, 255, 0.5);
-      margin-top: -40px;
-      margin-left: -40px;
-      padding-top: 80px;
-      padding-left: 20px;
-      padding-bottom: 40px; }
-  #home h1::after {
-    background: #D2B356;
-    content: "";
-    display: block;
-    width: 40px;
-    height: 4px;
-    margin: 0 auto;
-    margin-top: 17px; }
-    @media (max-width: 767px) {
-      #home h1::after {
-        margin-top: 12px; } }
-  #home h1:nth-child(2)::after {
-    content: none; }
+      margin: -15px 0 -30px;
+      padding-bottom: 25px; } }
+
+#home {
+  height: 70vh;
+  background: url("../img/home_bg.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed; }
+  #home .container {
+    padding-top: calc(35vh - 135px); }
+    #home .container .outerBox {
+      background: rgba(255, 255, 255, 0.5);
+      padding: 17px; }
+      #home .container .outerBox .innerBox {
+        background: rgba(255, 255, 255, 0.5);
+        margin-top: -35px;
+        margin-left: -35px;
+        padding-top: 80px;
+        padding-left: 20px;
+        padding-bottom: 40px; }
+    #home .container h1::after {
+      background: #D2B356;
+      content: "";
+      display: block;
+      width: 40px;
+      height: 4px;
+      margin: 0 auto;
+      margin-top: 17px; }
+      @media (max-width: 767px) {
+        #home .container h1::after {
+          margin-top: 12px; } }
+    #home .container h1:nth-child(2)::after {
+      content: none; }
 
 #iofferImg {
   height: 40vh;
@@ -136,44 +168,67 @@ section:nth-child(odd) {
 
 #portfolio .imgContainer {
   padding-top: 0; }
-  #portfolio .imgContainer .portfolioImg {
+  #portfolio .imgContainer .row {
     height: 14.65vw;
-    margin-bottom: 43px;
-    cursor: pointer;
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat; }
-    #portfolio .imgContainer .portfolioImg#item1 {
-      background-image: url("../img/portfolio/askarizeren.jpg"); }
-    #portfolio .imgContainer .portfolioImg#item2 {
-      background-image: url("../img/portfolio/vertemo.jpg"); }
-    #portfolio .imgContainer .portfolioImg#item3 {
-      background-image: url("../img/portfolio/askarizeren.jpg"); }
-    #portfolio .imgContainer .portfolioImg#item4 {
-      background-image: url("../img/portfolio/vertemo.jpg"); }
+    padding-bottom: 75px;
+    -webkit-box-shadow: 0 5px 20px 0 #7d7c7c;
+    -moz-box-shadow: 0 5px 20px 0 #7d7c7c;
+    box-shadow: 0 5px 20px 0 #7d7c7c; }
     @media (max-width: 767px) {
-      #portfolio .imgContainer .portfolioImg {
-        height: 29.38vw;
-        margin-bottom: 29px; }
-        #portfolio .imgContainer .portfolioImg#item1 {
-          background-image: url("../img/portfolio/askarizeren_tablet.jpg"); }
-        #portfolio .imgContainer .portfolioImg#item2 {
-          background-image: url("../img/portfolio/vertemo_tablet.jpg"); }
-        #portfolio .imgContainer .portfolioImg#item3 {
-          background-image: url("../img/portfolio/askarizeren_tablet.jpg"); }
-        #portfolio .imgContainer .portfolioImg#item4 {
-          background-image: url("../img/portfolio/vertemo_tablet.jpg"); } }
+      #portfolio .imgContainer .row {
+        height: 29.38vw; } }
     @media (max-width: 543px) {
-      #portfolio .imgContainer .portfolioImg {
-        height: 40.19vw; }
-        #portfolio .imgContainer .portfolioImg#item1 {
-          background-image: url("../img/portfolio/askarizeren_mobile.jpg"); }
-        #portfolio .imgContainer .portfolioImg#item2 {
-          background-image: url("../img/portfolio/vertemo_mobile.jpg"); }
-        #portfolio .imgContainer .portfolioImg#item3 {
-          background-image: url("../img/portfolio/askarizeren_mobile.jpg"); }
-        #portfolio .imgContainer .portfolioImg#item4 {
-          background-image: url("../img/portfolio/vertemo_mobile.jpg"); } }
+      #portfolio .imgContainer .row {
+        height: 40.19vw; } }
+    #portfolio .imgContainer .row .portfolioImg {
+      height: 14.65vw;
+      margin-bottom: 43px;
+      cursor: pointer;
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      -webkit-transition: all 0.5s;
+      -moz-transition: all 0.5s;
+      -ms-transition: all 0.5s;
+      -o-transition: all 0.5s;
+      transition: all 0.5s; }
+      #portfolio .imgContainer .row .portfolioImg#item1 {
+        background-image: url("../img/portfolio/bragi_thedash.jpg"); }
+      #portfolio .imgContainer .row .portfolioImg#item2 {
+        background-image: url("../img/portfolio/vertemo.jpg"); }
+      #portfolio .imgContainer .row .portfolioImg#item3 {
+        background-image: url("../img/portfolio/askarizeren.jpg"); }
+      #portfolio .imgContainer .row .portfolioImg#item4 {
+        background-image: url("../img/portfolio/vertemo.jpg"); }
+      @media (max-width: 767px) {
+        #portfolio .imgContainer .row .portfolioImg {
+          height: 29.38vw;
+          margin-bottom: 29px; }
+          #portfolio .imgContainer .row .portfolioImg#item1 {
+            background-image: url("../img/portfolio/bragi_thedash_tablet.jpg"); }
+          #portfolio .imgContainer .row .portfolioImg#item2 {
+            background-image: url("../img/portfolio/vertemo_tablet.jpg"); }
+          #portfolio .imgContainer .row .portfolioImg#item3 {
+            background-image: url("../img/portfolio/askarizeren_tablet.jpg"); }
+          #portfolio .imgContainer .row .portfolioImg#item4 {
+            background-image: url("../img/portfolio/vertemo_tablet.jpg"); } }
+      @media (max-width: 543px) {
+        #portfolio .imgContainer .row .portfolioImg {
+          height: 40.19vw; }
+          #portfolio .imgContainer .row .portfolioImg#item1 {
+            background-image: url("../img/portfolio/bragi_thedash_mobile.jpg"); }
+          #portfolio .imgContainer .row .portfolioImg#item2 {
+            background-image: url("../img/portfolio/vertemo_mobile.jpg"); }
+          #portfolio .imgContainer .row .portfolioImg#item3 {
+            background-image: url("../img/portfolio/askarizeren_mobile.jpg"); }
+          #portfolio .imgContainer .row .portfolioImg#item4 {
+            background-image: url("../img/portfolio/vertemo_mobile.jpg"); } }
+      #portfolio .imgContainer .row .portfolioImg.col-4 {
+        height: 19.33vw;
+        margin-top: -2.5vw;
+        -webkit-box-shadow: 20px 15px 35px 6px #bfbfbf;
+        -moz-box-shadow: 20px 15px 35px 6px #bfbfbf;
+        box-shadow: 20px 15px 35px 6px #bfbfbf; }
 
 #toolbox .imgBox {
   margin-top: 20px; }
@@ -238,7 +293,7 @@ section:nth-child(odd) {
     height: 75px;
     background-color: transparent;
     top: 25px;
-    right: 25px;
+    right: 0;
     cursor: pointer; }
     .portfolioPage .close .closeLeft {
       height: 75px;
@@ -261,3 +316,6 @@ section:nth-child(odd) {
         -o-transform: rotate(90deg);
         transform: rotate(90deg);
         z-index: 1052; }
+  .portfolioPage .itemWebsite img {
+    width: 100%;
+    padding: 70px 0 0 70px; }
