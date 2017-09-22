@@ -518,15 +518,19 @@ section:nth-child(odd){
 
 	    .multipleImg{
 	    	position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
 			@include box-shadow( 0 5px 20px 0 #7d7c7c );
 			overflow-y:scroll;
 			overflow-x:hidden;
 			&::-webkit-scrollbar { 
 			    display: none; 
 			}
+	    	width: 65%;
+    		margin: 10% 0;
+    		z-index: 1050;
+    		@include transition(all 0.5s);
 
 			img{			
 				width: 100%;
@@ -534,15 +538,73 @@ section:nth-child(odd){
 				    display: none; 
 				}
 			}
-	    }
 
-	    .itemImage1{
-	    	width: 65%;
-    		margin: 10% 0;
+			&.leftImg{
+				margin: 10% 35% 10% 0;
+			}
+
+			//for hover over different img
+			&.itemImageLarge{
+				width: 85%;
+			}
+			&.leftImg.itemImageLarge{
+				margin: 0 15% 0 0;
+				animation: moveItLeft 0.7s;
+				z-index: 1060;
+			}
+
+			&.rightImg.itemImageLarge{
+				margin: 0;
+				z-index: 1060;
+			}
+
+			&.leftImg.itemImageSmall{
+				animation: moveItRight 0.7s;
+			}
 	    }
-		.itemImage2{
-			width: 85%;
-			margin-right: 15%;
-		}
+    }
+
+    @keyframes moveItLeft{
+    	0%{
+			margin: 10% 35% 10% 0;
+			z-index: 1050;
+    	}
+    	55%{
+    		margin: 10% 65% 8% 0;
+    	}
+    	75%{
+			margin: 0 17% 5% 0;
+			z-index: 1060;
+    	}
+    	80%{
+			margin: 0 14% 3% 0;
+			z-index: 1060;
+    	}
+    	100%{
+			margin: 0 15% 0 0;
+			z-index: 1060;
+    	}
+    }
+
+    @keyframes moveItRight{
+    	0%{
+			margin: 0 15% 0 0;
+			z-index: 1061;
+    	}
+    	55%{
+			margin: 5% 65% 2% 0;
+			z-index: 1061;
+    	}
+    	75%{
+    		margin: 10% 40% 4% 0;
+    	}
+    	80%{
+			margin: 10% 34% 6% 0;
+			z-index: 1050;
+    	}
+    	100%{
+			margin: 10% 35% 10% 0;
+			z-index: 1050;
+    	}
     }
 }

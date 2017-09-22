@@ -175,4 +175,17 @@ $(function() {
 		$('body').removeClass('blur');
 	});
 
+	//hover multiple portfolio detail pages
+	$('.rightImg').hover(function(){
+		$(this).addClass('itemImageLarge');
+		$('.leftImg').removeClass('itemImageLarge');
+		$(this).removeClass('itemImageSmall');
+		$('.leftImg').addClass('itemImageSmall');
+	})
+	$('.leftImg').hover(function(){
+		$(this).addClass('itemImageLarge');
+		$('.rightImg').removeClass('itemImageLarge');
+		$(this).removeClass('itemImageSmall');
+		$('.rightImg').addClass('itemImageSmall');
+	})
 });
