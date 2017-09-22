@@ -21,6 +21,9 @@ $p-tablet: 12px;
 //RESPONSIVE
 
 //responsive breakpoints
-$min-desktop: 768px;
-$max-tablet: 767px;
 $max-mobile: 543px;
+$min-tablet: 544px; 
+$max-tablet: 767px;
+$min-desktop-sm: 768px;
+$min-desktop-md: 992px;
+$min-desktop-lg: 1200px;

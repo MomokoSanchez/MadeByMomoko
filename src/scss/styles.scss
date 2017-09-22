@@ -6,15 +6,21 @@
 
 //Global components
 
-div[class^="col-"]{
-	@media(min-width: 992px){
-		padding-left: 20px;
-		padding-right: 20px;
-	}
-}
-
 body{
 	position: relative;
+}
+
+.row {
+	@media(min-width: 992px){
+		margin-right: -30px;
+	 	margin-left: -30px;
+
+		> .col,
+		> [class*="col-"] {
+			padding-right: 30px;
+		  	padding-left: 30px;
+		}
+	}
 }
 
 nav, header, section{
@@ -95,6 +101,24 @@ section:nth-child(odd){
 	margin-bottom: 5px;
 }
 
+.goto{
+	border: 2px solid $main-color;
+	background: transparent;
+	border-radius: 0;
+	@include transition(background 0.5s);
+	cursor: pointer;
+	@include headerfont;
+	font-size: $h3-desktop;
+
+	@media(max-width: $max-tablet){
+		font-size: $h3-tablet;
+	}
+
+	&:hover{
+		background: $main-color;
+	}
+}
+
 //HELPER CLASSES
 
 //find responsive solution
@@ -107,7 +131,11 @@ section:nth-child(odd){
 }
 
 .blur{
-	filter: blur(5px);
+	overflow: hidden;
+
+	nav, #ioffer, #portfolio, #toolbox{
+		filter: blur(5px);		
+	}
 }
 
 //NAVIGATION STYLES
@@ -125,7 +153,7 @@ section:nth-child(odd){
 			padding: 0.5rem 1rem;
 		}
 
-		@media(min-width: $min-desktop){
+		@media(min-width: $min-desktop-sm){
 
 	    	.navbar-nav{
 				padding: 1rem 0 1rem 1rem;
@@ -143,10 +171,22 @@ section:nth-child(odd){
 //SECTION STYLES
 
 //home
+#stars{
+    	position: absolute;
+    	width: 100vw;
+    	height: 70vh;
+    	background: url('../img/night-stars.png');
+    	@include full-bg-img;
+    	background-attachment: fixed;
+    	opacity: 0;
+
+}
 #home{
 	height: 70vh; //remember iPhone 5
-	background: url('../img/home_bg.jpg');
+	/* mixin does not cover all options, necessary? */
+	@include linear-gradient(to bottom, rgba(123,157,194,1) 0%, rgba(144,170,193,1) 8%, rgba(220,214,190,1) 49%, rgba(254,231,163,1) 66%, rgba(249,161,139,1) 75%);
 	@include full-bg-img;
+	@include transition(background 0.5s);
     background-attachment: fixed;
 
 	.container{
@@ -188,11 +228,17 @@ section:nth-child(odd){
 	}
 }
 
+//icando
+#icando{
+	.fa{
+		margin-top: 20px;
+	}
+}
 
 //ioffer
 #iofferImg{
 	height: 40vh;
-	background-image: url('../img/seedling.jpeg');
+	background-image: url('../img/seedling-blass.jpg');
 	@include full-bg-img;
     background-attachment: fixed;
 }
@@ -232,7 +278,7 @@ section:nth-child(odd){
 					background-image: url('../img/portfolio/askarizeren.jpg');
 				}
 				&#item4{
-					background-image: url('../img/portfolio/vertemo.jpg');
+					background-image: url('../img/portfolio/madebymomoko.jpg');
 				}
 
 				@media(max-width: $max-tablet){
@@ -322,6 +368,11 @@ section:nth-child(odd){
 			&.unCover:hover{
 				opacity: 1;
 			}
+
+			&::after{
+				content: 'text';
+				display: block;
+			}
 		}
 	}
 }
@@ -343,13 +394,14 @@ section:nth-child(odd){
 
 		p{
 			margin: 0;
+			cursor: pointer;
 		}
 	}
 }
 
 //PORTFOLIO STYLES
 .portfolioPage{
-	background-color: rgba(255,255,255,0.7);
+	background-color: rgba(255,255,255,0.9);
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -387,8 +439,110 @@ section:nth-child(odd){
     	}
     }
 
-    .itemWebsite img{
-    	width: 100%;
-    	padding: 70px 0 0 70px;
+	.imgBox{ 
+
+		img{
+			width: 33%;
+			padding-right: 20px;
+			float: left;
+			margin-bottom: 21px; 	//like p, maybe create variable@media (min-width: 768px)
+
+			@media (max-width: $max-tablet){
+				margin-bottom: 18px;
+			}
+
+			&.cover{
+				display: block;
+			}
+			&.unCover{
+				opacity: 0;
+				margin-left: -33%;
+				@include transition(0.8s opacity);
+
+				&:hover{
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	.fa{
+	    position: relative;
+		margin-right: 10px;
+	    bottom: -5px;
+	}
+
+	a{
+		color: black;
+		text-decoration: none;
+		@include headerfont;
+		font-size: $h3-desktop;
+
+		@media(max-width: $max-tablet){
+			font-size: $h3-tablet;
+		}
+	}
+
+	.itemImage{
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		margin-top: 155px;
+		margin-bottom: 75px;
+		padding: 0;
+		@include box-shadow( 0 5px 20px 0 #7d7c7c );
+		overflow-y:scroll;
+		overflow-x:hidden;
+		&::-webkit-scrollbar { 
+		    display: none; 
+		}
+
+		img{
+			width: 100%;
+			&::-webkit-scrollbar { 
+			    display: none; 
+			}
+		}
+	}
+
+    //for two page view
+    .itemImageMult{
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		margin-top: 155px;
+		margin-bottom: 75px;
+		padding: 0;
+
+	    .multipleImg{
+	    	position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+			@include box-shadow( 0 5px 20px 0 #7d7c7c );
+			overflow-y:scroll;
+			overflow-x:hidden;
+			&::-webkit-scrollbar { 
+			    display: none; 
+			}
+
+			img{			
+				width: 100%;
+				&::-webkit-scrollbar { 
+				    display: none; 
+				}
+			}
+	    }
+
+	    .itemImage1{
+	    	width: 65%;
+    		margin: 10% 0;
+	    }
+		.itemImage2{
+			width: 85%;
+			margin-right: 15%;
+		}
     }
 }
