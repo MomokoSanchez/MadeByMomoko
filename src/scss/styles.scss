@@ -460,7 +460,7 @@ section:nth-child(odd){
 			width: 33%;
 			padding-right: 20px;
 			float: left;
-			margin-bottom: 21px; 	//like p, maybe create variable@media (min-width: 768px)
+			margin-bottom: 21px; 	//like p, maybe create variable
 
 			@media (max-width: $max-tablet){
 				margin-bottom: 18px;
