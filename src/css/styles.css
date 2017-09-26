@@ -38,7 +38,8 @@ as well as a plain color fallback and the `-webkit-` prefixed declaration
 @param {Arglist} $color-stops - List of color-stops composing the gradient
 ********************************/
 body {
-  position: relative; }
+  position: relative;
+  overflow-x: hidden; }
 
 @media (min-width: 992px) {
   .row {
@@ -142,10 +143,17 @@ section:nth-child(odd) {
   .blur nav, .blur #ioffer, .blur #portfolio, .blur #toolbox {
     filter: blur(5px); }
 
+.noMargin {
+  margin: 0; }
+
 .navbar {
   padding: 0; }
   .navbar .navbar-toggler {
-    margin: .5rem 0; }
+    margin: .5rem 0;
+    border-radius: 1px;
+    background: rgba(255, 255, 255, 0.7); }
+  .navbar button:focus {
+    outline-color: #D2B356; }
   .navbar .navbar-collapse .navbar-nav {
     background: rgba(255, 255, 255, 0.5);
     padding: 0.5rem 1rem; }
@@ -159,7 +167,7 @@ section:nth-child(odd) {
 
 #stars {
   position: absolute;
-  width: 100vw;
+  width: 100%;
   height: 70vh;
   background: url("../img/night-stars.png");
   background-position: center center;
@@ -188,29 +196,31 @@ section:nth-child(odd) {
   background-attachment: fixed; }
   #home .container {
     padding-top: calc(35vh - 135px); }
-    #home .container .outerBox {
-      background: rgba(255, 255, 255, 0.5);
-      padding: 17px; }
-      #home .container .outerBox .innerBox {
+    #home .container .headerContainer {
+      margin-left: 20px; }
+      #home .container .headerContainer .outerBox {
         background: rgba(255, 255, 255, 0.5);
-        margin-top: -35px;
-        margin-left: -35px;
-        padding-top: 80px;
-        padding-left: 20px;
-        padding-bottom: 40px; }
-    #home .container h1::after {
-      background: #D2B356;
-      content: "";
-      display: block;
-      width: 40px;
-      height: 4px;
-      margin: 0 auto;
-      margin-top: 17px; }
-      @media (max-width: 767px) {
-        #home .container h1::after {
-          margin-top: 12px; } }
-    #home .container h1:nth-child(2)::after {
-      content: none; }
+        padding: 17px; }
+        #home .container .headerContainer .outerBox .innerBox {
+          background: rgba(255, 255, 255, 0.5);
+          margin-top: -35px;
+          margin-left: -35px;
+          padding-top: 80px;
+          padding-left: 20px;
+          padding-bottom: 40px; }
+      #home .container .headerContainer h1::after {
+        background: #D2B356;
+        content: "";
+        display: block;
+        width: 40px;
+        height: 4px;
+        margin: 0 auto;
+        margin-top: 17px; }
+        @media (max-width: 767px) {
+          #home .container .headerContainer h1::after {
+            margin-top: 12px; } }
+      #home .container .headerContainer h1:nth-child(2)::after {
+        content: none; }
 
 #icando .fa {
   margin-top: 20px; }
@@ -222,12 +232,19 @@ section:nth-child(odd) {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed; }
+  @media (max-width: 767px) {
+    #iofferImg {
+      background-image: url("../img/seedling-mobile.jpg");
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed; } }
 
 #portfolio .imgContainer {
-  padding-top: 0; }
+  padding-top: 0;
+  padding-bottom: 100px; }
   #portfolio .imgContainer .row {
     height: 14.65vw;
-    padding-bottom: 75px;
     -webkit-box-shadow: 0 5px 20px 0 #7d7c7c;
     -moz-box-shadow: 0 5px 20px 0 #7d7c7c;
     box-shadow: 0 5px 20px 0 #7d7c7c; }
@@ -268,7 +285,7 @@ section:nth-child(odd) {
           #portfolio .imgContainer .row .portfolioImg#item3 {
             background-image: url("../img/portfolio/askarizeren_tablet.jpg"); }
           #portfolio .imgContainer .row .portfolioImg#item4 {
-            background-image: url("../img/portfolio/vertemo_tablet.jpg"); } }
+            background-image: url("../img/portfolio/madebymomoko_tablet.jpg"); } }
       @media (max-width: 543px) {
         #portfolio .imgContainer .row .portfolioImg {
           height: 40.19vw; }
@@ -279,7 +296,7 @@ section:nth-child(odd) {
           #portfolio .imgContainer .row .portfolioImg#item3 {
             background-image: url("../img/portfolio/askarizeren_mobile.jpg"); }
           #portfolio .imgContainer .row .portfolioImg#item4 {
-            background-image: url("../img/portfolio/vertemo_mobile.jpg"); } }
+            background-image: url("../img/portfolio/madebymomoko_mobile.jpg"); } }
       #portfolio .imgContainer .row .portfolioImg.col-4 {
         height: 19.33vw;
         margin-top: -2.5vw;
@@ -289,38 +306,37 @@ section:nth-child(odd) {
 
 #toolbox .imgBox {
   margin-top: 20px; }
-  #toolbox .imgBox img {
-    width: 10%;
-    padding-right: 20px;
-    float: left; }
-    @media (max-width: 767px) {
-      #toolbox .imgBox img {
-        width: 16%; } }
-    @media (max-width: 543px) {
-      #toolbox .imgBox img {
-        width: 32%;
-        padding-bottom: 20px; } }
-    #toolbox .imgBox img.cover {
-      display: block; }
-    #toolbox .imgBox img.unCover {
-      opacity: 0;
-      margin-left: -10%;
-      -webkit-transition: 0.8s opacity;
-      -moz-transition: 0.8s opacity;
-      -ms-transition: 0.8s opacity;
-      -o-transition: 0.8s opacity;
-      transition: 0.8s opacity; }
-      @media (max-width: 767px) {
-        #toolbox .imgBox img.unCover {
-          margin-left: -16%; } }
+  #toolbox .imgBox .col-md, #toolbox .imgBox .col-sm-3, #toolbox .imgBox .col-4 {
+    padding: 0 5px; }
+    #toolbox .imgBox .col-md img, #toolbox .imgBox .col-sm-3 img, #toolbox .imgBox .col-4 img {
+      width: 100%; }
       @media (max-width: 543px) {
-        #toolbox .imgBox img.unCover {
-          margin-left: -32%; } }
-    #toolbox .imgBox img.unCover:hover {
-      opacity: 1; }
-    #toolbox .imgBox img::after {
-      content: 'text';
-      display: block; }
+        #toolbox .imgBox .col-md img, #toolbox .imgBox .col-sm-3 img, #toolbox .imgBox .col-4 img {
+          padding: 0 10px; } }
+      @media (max-width: 767px) {
+        #toolbox .imgBox .col-md img, #toolbox .imgBox .col-sm-3 img, #toolbox .imgBox .col-4 img {
+          padding: 0 6px; } }
+      #toolbox .imgBox .col-md img.unCover, #toolbox .imgBox .col-sm-3 img.unCover, #toolbox .imgBox .col-4 img.unCover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        padding: 0 5px;
+        -webkit-transition: opacity 0.8s, padding 0.8s;
+        -moz-transition: opacity 0.8s, padding 0.8s;
+        -ms-transition: opacity 0.8s, padding 0.8s;
+        -o-transition: opacity 0.8s, padding 0.8s;
+        transition: opacity 0.8s, padding 0.8s; }
+      #toolbox .imgBox .col-md img.unCover:hover, #toolbox .imgBox .col-sm-3 img.unCover:hover, #toolbox .imgBox .col-4 img.unCover:hover {
+        opacity: 1;
+        padding: 0 4px; }
+    #toolbox .imgBox .col-md p, #toolbox .imgBox .col-sm-3 p, #toolbox .imgBox .col-4 p {
+      margin-top: 8px;
+      text-align: center;
+      font-size: 13px; }
+      @media (max-width: 543px) {
+        #toolbox .imgBox .col-md p, #toolbox .imgBox .col-sm-3 p, #toolbox .imgBox .col-4 p {
+          margin-top: 0; } }
 
 #contactImg {
   height: 40vh;
@@ -355,7 +371,8 @@ section:nth-child(odd) {
     background-color: transparent;
     top: 25px;
     right: 0;
-    cursor: pointer; }
+    cursor: pointer;
+    z-index: 1090; }
     .portfolioPage .close .closeLeft {
       height: 75px;
       width: 1px;
@@ -365,8 +382,7 @@ section:nth-child(odd) {
       -moz-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
       -o-transform: rotate(45deg);
-      transform: rotate(45deg);
-      z-index: 1051; }
+      transform: rotate(45deg); }
       .portfolioPage .close .closeLeft .closeRight {
         height: 75px;
         width: 1px;
@@ -375,8 +391,7 @@ section:nth-child(odd) {
         -moz-transform: rotate(90deg);
         -ms-transform: rotate(90deg);
         -o-transform: rotate(90deg);
-        transform: rotate(90deg);
-        z-index: 1052; }
+        transform: rotate(90deg); }
   .portfolioPage .imgBox img {
     width: 33%;
     padding-right: 20px;

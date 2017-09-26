@@ -8,6 +8,7 @@
 
 body{
 	position: relative;
+	overflow-x: hidden;
 }
 
 .row {
@@ -138,12 +139,22 @@ section:nth-child(odd){
 	}
 }
 
+.noMargin{
+	margin: 0;
+}
+
+
 //NAVIGATION STYLES
 .navbar{
 	padding: 0;
 
 	.navbar-toggler{
 		margin: .5rem 0;
+		border-radius: 1px;
+    	background: rgba(255,255,255,0.7);
+	}
+	button:focus {
+	    outline-color: $main-color;
 	}
 
 	.navbar-collapse{
@@ -173,7 +184,7 @@ section:nth-child(odd){
 //home
 #stars{
     	position: absolute;
-    	width: 100vw;
+    	width: 100%;
     	height: 70vh;
     	background: url('../img/night-stars.png');
     	@include full-bg-img;
@@ -192,37 +203,41 @@ section:nth-child(odd){
 	.container{
 		padding-top: calc(35vh - 135px);
 
-		.outerBox{
-			background: rgba(255,255,255,0.5);
-			padding: 17px;
+		.headerContainer{
+			margin-left: 20px;
 
-			.innerBox{
-				background: rgba(255,255,255,0.5);	
-				margin-top: -35px;
-				margin-left: -35px;	
-				padding-top: 80px;
-				padding-left: 20px;
-				padding-bottom: 40px;
-			}
-		}
+			.outerBox{
+				background: rgba(255,255,255,0.5);
+				padding: 17px;
 
-		h1{
-			&::after{
-				background: $main-color;
-			    content: "";
-			    display: block;
-			    width: 40px;
-			    height: 4px;
-			    margin: 0 auto;
-			    margin-top: 17px;
-
-			    @media (max-width: $max-tablet){
-			    	margin-top: 12px;
-			    }
+				.innerBox{
+					background: rgba(255,255,255,0.5);	
+					margin-top: -35px;
+					margin-left: -35px;	
+					padding-top: 80px;
+					padding-left: 20px;
+					padding-bottom: 40px;
+				}
 			}
 
-			&:nth-child(2)::after{
-				content: none;
+			h1{
+				&::after{
+					background: $main-color;
+				    content: "";
+				    display: block;
+				    width: 40px;
+				    height: 4px;
+				    margin: 0 auto;
+				    margin-top: 17px;
+
+				    @media (max-width: $max-tablet){
+				    	margin-top: 12px;
+				    }
+				}
+
+				&:nth-child(2)::after{
+					content: none;
+				}
 			}
 		}
 	}
@@ -241,6 +256,11 @@ section:nth-child(odd){
 	background-image: url('../img/seedling-blass.jpg');
 	@include full-bg-img;
     background-attachment: fixed;
+    @media(max-width: $max-tablet){
+		background-image: url('../img/seedling-mobile.jpg');
+		@include full-bg-img;
+	    background-attachment: fixed;
+    }
 }
 
 
@@ -248,10 +268,10 @@ section:nth-child(odd){
 #portfolio{
 	.imgContainer{
 		padding-top: 0;
+		padding-bottom: 100px;
 
 		.row{
 			height: 14.65vw;
-			padding-bottom: 75px;
 			@include box-shadow( 0 5px 20px 0 #7d7c7c );
 
 			@media(max-width: $max-tablet){
@@ -296,7 +316,7 @@ section:nth-child(odd){
 						background-image: url('../img/portfolio/askarizeren_tablet.jpg');
 					}
 					&#item4{
-						background-image: url('../img/portfolio/vertemo_tablet.jpg');
+						background-image: url('../img/portfolio/madebymomoko_tablet.jpg');
 					}
 				}
 
@@ -314,7 +334,7 @@ section:nth-child(odd){
 						background-image: url('../img/portfolio/askarizeren_mobile.jpg');
 					}
 					&#item4{
-						background-image: url('../img/portfolio/vertemo_mobile.jpg');
+						background-image: url('../img/portfolio/madebymomoko_mobile.jpg');
 					}
 				}
 
@@ -335,43 +355,39 @@ section:nth-child(odd){
 	.imgBox{ 
 		margin-top: 20px;
 
-		img{
-			width: 10%;
-			padding-right: 20px;
-			float: left;
+		.col-md, .col-sm-3, .col-4{
+			padding: 0 5px;
 
-			@media(max-width: $max-tablet){
-				width: 16%;
-			}
-
-			@media(max-width: $max-mobile){
-				width: 32%;
-				padding-bottom: 20px;
-			}
-
-			&.cover{
-				display: block;
-			}
-			&.unCover{
-				opacity: 0;
-				margin-left: -10%;
-				@include transition(0.8s opacity);
-
-				@media(max-width: $max-tablet){
-					margin-left: -16%;
-				}
-
+			img{
+				width: 100%;
 				@media(max-width: $max-mobile){
-					margin-left: -32%;
+					padding: 0 10px;
+				}
+				@media(max-width: $max-tablet){
+					padding: 0 6px;
+				}
+
+				&.unCover{
+					position: absolute;
+					top: 0;
+					left: 0;
+					opacity: 0;
+					padding: 0 5px;
+					@include transition(opacity 0.8s,  padding 0.8s);
+				}
+				&.unCover:hover{
+					opacity: 1;
+					padding: 0 4px;
 				}
 			}
-			&.unCover:hover{
-				opacity: 1;
-			}
 
-			&::after{
-				content: 'text';
-				display: block;
+			p{
+				margin-top: 8px; 
+				text-align: center;
+				font-size: 13px;
+				@media(max-width: $max-mobile){
+					margin-top: 0;
+				}
 			}
 		}
 	}
@@ -420,6 +436,7 @@ section:nth-child(odd){
 	    top: 25px;
 	    right: 0;
 	    cursor: pointer;
+	    z-index: 1090;
 
     	.closeLeft{
     		height: 75px;
@@ -427,14 +444,12 @@ section:nth-child(odd){
 		    margin-left: 35px;
 		    background-color: #222;
 			@include transform( rotate(45deg) ); 
-		    z-index: 1051;
 
     		.closeRight{
 			    height: 75px;
 			    width: 1px;
 			    background-color: #222;
 			    @include transform( rotate(90deg) ); 
-			    z-index: 1052;
     		}
     	}
     }
