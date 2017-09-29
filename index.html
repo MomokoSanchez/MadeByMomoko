@@ -8,8 +8,13 @@
     <meta name="robots" content="noindex">
     <meta name="description" content="Do you need someone to build you a website or have Front-End Webdeveloper position? Here is a possible candidate.">
     <meta name="author" content="Sonia Patlan">
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="favicon.ico">
 
     <title>Made By Momoko - Creative Web Development</title>
+
+    <!--prefetch stars -->
+    <link rel="preload" as="image" href="img/night-stars.png">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -49,11 +54,13 @@
     <header id="home">   
       <div class="container">
         <div class="row justify-content-center">
-          <div class="headerContainer col-10 col-sm-6 text-center">
+          <div class="headerContainer col-10 col-sm-7 text-center">
             <div class="outerBox">
               <div class="innerBox">
-                <h1>MADE BY MOMOKO</h1>
-                <h1>Creative Web Development</h1>
+                <div class="mainText">
+                  <h1>MADE BY MOMOKO</h1>
+                  <h1>Creative Web Development</h1>
+                </div>
               </div>
             </div>
           </div>
@@ -65,37 +72,37 @@
     <section id="icando">
       <div class="container">
         <div class="row">
-          <div class="col-lg-5 col-12">
+          <div class="col-12 col-md-11 col-lg-5 reveal">
             <h1>THIS IS ME</h1>
             <p>
               I am a Front-End Web Developer and you can hire me! Right now I am looking for a fulltime position and in the meantime I create Websites for single persons and small companies. My focus lies on implementing modern responsive Websites with or without a CMS like Wordpress, Drupal, etc. or maintaing and improving existing Websites. <br/>
-              I am not a Designer, though. This means I have no degree in Design and am not adept to design a Website from scratch. But I can adapt publicly available templates and implement designs templates from a customer. I also can rate and improve a design regarding UX-Aspects[link]. 
+              I am not a Designer, though. This means I have a master's degree in IT, but none in Design and am not adept to design a Website from scratch. But I can adapt publicly available templates and implement designs templates from a customer. I also can rate and improve a design regarding UX-Aspects. 
             </p>
           </div>
-          <div class="col-lg-7 col-12">
+          <div class="col-12 col-md-11 col-lg-7">
             <div class="row">
-              <div class="col-md-6 col-12">
+              <div class="col-md-6 col-12 reveal">
                 <i class="fa fa-code fa-2x"></i>
                 <h3>Clean Code</h3>
                 <p>
                   I believe in simplicity. No spaghetti code and no overly special complex scripts that might break your design at this one certain resolution. Instead of reinventing the wheel, I try to find solutions, that have been well-tried to combine them to the optimal performance.
                 </p>
               </div>
-              <div class="col-md-6 col-12">
+              <div class="col-md-6 col-12 reveal">
                 <i class="fa fa-mobile fa-2x"></i>
                 <h3>Responsive Design</h3>
                 <p>
                   My websites are made to work with any browser. No matter the screen resolution or the device, ranging from Desktop Computer, Tablet or Mobile Phone, the look and feel of the Website is always adjsted to the device. By the way: having a responsive site with fast loading speed also improves your rating on Google!
                 </p>
               </div>
-              <div class="col-md-6 col-12">
+              <div class="col-md-6 col-12 reveal">
                 <i class="fa fa-heart-o fa-2x"></i>
                 <h3>User Experience</h3>
                 <p>
                   I strive to make websites that are user friendly and easy to navigate. I would rather go for minimalism than for obtrusive clutter. To further improve the content, A/B testing can be implemented with external tools or conducted with prototypes through qualiative and quantitative interviews.
                 </p>
               </div>
-              <div class="col-md-6 col-12">
+              <div class="col-md-6 col-12 reveal">
                 <i class="fa fa-line-chart fa-2x"></i>
                 <h3>Tracking</h3>
                 <p>
@@ -113,10 +120,10 @@
     <section id="ioffer">
       <div class="container">
         <div class="row">
-          <div class="col-md-8 col-12">
+          <div class="col-12 col-md-10 col-lg-8 reveal">
             <h1>I AM LOOKING FOR</h1>
             <p>
-              Are you a small company or even a Web Developer Agency? I would love to work in an environment that gives me the opportunity to grow. I am eager to learn and improve my knowledge. I would very much appreciate a high ranking on the joel test [link]. If remote work is not possible, I am looking for a company in the Edmonton Area. 
+              Are you a small Tech Company or even a Web Developer Agency? I would love to work in an environment that gives me the opportunity to grow, since I am always eager to learn and improve my knowledge. I would love to work with people who can teach me a few new things. The best team would be not too large and I would feel very comfortable around a coffe machine and a little Nerdiness. If you company has a place for slightly introvert ones, instead of people who's ego is a big inflated ballon, then we might be the perfect match. Besides that I would very much appreciate a high ranking on the joel test [link]. The best place to work would be in the Edmonton Area, but am also available for remote work. 
             </p>
           </div>
           <div class="col-6">
@@ -129,9 +136,9 @@
     <section id="portfolio">
       <div class="container">
         <div class="row">
-          <div class="col">
+          <div class="col-12 col-md-10 col-lg-8 reveal">
             <h1>Portfolio</h1>
-            <p class="noMargin">Here are my best projects so far. I am also maintaining a couple of Websites and am constantly working on new things. <br/>My next project will probably be a resdesign of www.keramik-patlan.de which was the first website I built, that made it to the web. You can see that, right?</p>
+            <p class="noMargin">Here is a selection of my best projects. Besides that I am also maintaining a couple of Websites and am constantly working on new things. <br/>My next project will probably be a resdesign of www.keramik-patlan.de which was the first website I built, that made it to the web. You can see that, right?</p>
           </div>
         </div>
       </div>
@@ -153,59 +160,58 @@
     <section id="toolbox">
       <div class="container">
         <div class="row">
-          <div class="col-md-8 col-12">
+          <div class="col-12 col-md-10 col-lg-8 reveal">
             <h1>MY TOOLBOX</h1>
             <p>
-              All my projects are made with Sass and have Version Control with Git. They all are also based on the Twitter Boostrap Framework which just released its new Version 4 beta. <br/>
-              For prototyping I use Axure with a little help from Photoshop. <br/>
-              My favorite CMS so far is Wordpress, but I've been working with Drupal, ModX and Joomla and I would enjoy to learn mor about them.<br/>
-              For tracking  and optimization purposes I use Google Analytics and have also been setting up Google AdWords, Facebook Pixels and staying up to date with Google Search Console while  using Google Tag Manager. <br/>
-              I also bring with me a proper master's degree in IT & Media from a German University which gives me the fundaments to learn and adapt to new scripting and progamming languages as well as any other IT systems.
+              All my projects are made with Sass, build with Gulp and are <a href="https://github.com/MomokoSanchez/">version controlled</a> with Git. They also are all based on the Twitter Boostrap Framework which just released its new Version 4 beta.<br/>
+              For prototyping I use Axure with a little help from Photoshop and my favorite CMS so far is Wordpress, but I've been working with Drupal, ModX and Joomla for various projects.<br/>
+              For tracking  and optimization purposes I use Google Analytics and have also been setting up Google AdWords, Facebook Pixels and staying up to date with Google Search Console and have been Google Tag Manager as a container for all those useful tracking tools. <br/>
+              I also bring with me a proper master's degree in IT & Media from a German University which gives me the fundaments to easily learn and adapt to new scripting and progamming languages as well as any other IT systems. So bring it on!
             </p>
           </div>
-          <div class="col-12 col-sm-11 imgBox">
+          <div class="col-12 col-lg-10 imgBox">
             <div class="row">
-              <div class="col-4 col-sm-2 col-md">
+              <div class="col-3 col-sm-2 col-md">
                 <img src="img/Icons/HTML5_Logo_512-blass.png" alt="HTML5" class="cover">
                 <img src="img/Icons/HTML5_Logo_512.png" class="unCover">
                 <p>HTML5</p>
               </div>
-              <div class="col-4 col-sm-2 col-md">
+              <div class="col-3 col-sm-2 col-md">
                 <img src="img/Icons/css3-blass.png" alt="CSS3" class="cover">
                 <img src="img/Icons/css3.png" class="unCover">
                 <p>CSS3</p>
               </div>
-              <div class="col-4 col-sm-2 col-md">
+              <div class="col-3 col-sm-2 col-md">
                 <img src="img/Icons/Javascript-shield-blass.png" alt="Javascript" class="cover">
                 <img src="img/Icons/Javascript-shield.png" class="unCover">
                 <p>JavaScript</p>
               </div>
-              <div class="col-4 col-sm-2 col-md">
+              <div class="col-3 col-sm-2 col-md">
                 <img src="img/Icons/Boostrap_logo-blass.png" alt="Twitter Boostrap" class="cover">
                 <img src="img/Icons/Boostrap_logo.png" class="unCover">
                 <p>Twitter Boostrap</p>
               </div>
-              <div class="col-4 col-sm-2 col-md">
+              <div class="col-3 col-sm-2 col-md">
                 <img src="img/Icons/wordpress-blass.png" alt="Wordpress" class="cover">
                 <img src="img/Icons/wordpress.png" class="unCover">
                 <p>WordPress</p>
               </div>
-              <div class="col-4 col-sm-2 col-md">
+              <div class="col-3 col-sm-2 col-md">
                 <img src="img/Icons/GitHub-Mark-120px-plus-blass.png" alt="Github" class="cover">
                 <img src="img/Icons/GitHub-Mark-120px-plus.png" class="unCover">
                 <p>GitHub</p>
               </div>
-              <div class="col-4 col-sm-2 col-md">
+              <div class="col-3 col-sm-2 col-md">
                 <img src="img/Icons/GA-icon-blass.png" alt="Google Analytics" class="cover">
                 <img src="img/Icons/GA-icon.png" class="unCover">
                 <p>Google Analytics</p>
               </div>
-              <div class="col-4 col-sm-2 col-md">
+              <div class="col-3 col-sm-2 col-md">
                 <img src="img/Icons/rpicon_u7-blass.png" alt="Axure" class="cover">
                 <img src="img/Icons/rpicon_u7.png" class="unCover">
                 <p>Axure</p>
               </div>
-              <div class="col-4 col-sm-2 col-md">
+              <div class="col-3 col-sm-2 col-md">
                 <img src="img/Icons/Adobe_Photoshop_CS6_icon-blass.png" alt="Photoshop" class="cover">
                 <img src="img/Icons/Adobe_Photoshop_CS6_icon.png" class="unCover">
                 <p>Photoshop</p>
@@ -220,7 +226,7 @@
     <section id="contact">
       <div class="container">
         <div class="row">
-          <div class="col-md-8 col-12">
+          <div class="col-12 col-md-10 col-lg-8 reveal">
             <h1>CONTACT</h1>
             <p>
               You like what you see? You found something to improve? Drop me a line! 
@@ -259,16 +265,16 @@
         </div>
 
         <div class="row">
-          <div class="col-md-4 col-12">
+          <div class="col-md-6 col-12 portfolioText">
             <h1>BRAGI</h1>
             <p>
               Bragi is a leading innovater in hearable computing and brought the first wireless smart earphone to the market, long before Apple decided to ditch the headphone jack. <br/>
-              Being a fast moving company, they constantly need presentation of their products - The Dash, The Headphone and now The Dash Pro. To mirror their innovative approach, their marketing pages also needed to be modern and innovative. <br/>
+              Being a fast moving company, they constantly need presentation of their new products - The Dash, The Headphone and now The Dash Pro. To mirror their innovative approach, their marketing pages also needed to be modern and innovative. <br/>
               The goal was to implement pages for the new products and OS based on the designer's template as well as to migrate existing pages from multiple platforms to Wordpress. 
             </p>
             <h3>MADE WITH</h3>
             <p> 
-              The challenge was to build marketing pages that would run smooth with custom animations and background videos. Since there were multiple developers over time, it was necessary to create a workflow that would merge the developers contributions on local environments that needed to be synchronized with testing and live environments. Parts of the existing websites were created on different systems and partly without backend, so they needed to be unified to one CMS to ensure optimal management. 
+              The challenge was to build marketing pages that would run smoothly with custom animations and background videos. Since there were multiple developers over time, it was necessary to create a workflow that would merge the developers contributions on local environments that needed to be synchronized with testing and live environment. Parts of the existing websites were created on different systems and partly without backend, so they needed to be unified to one CMS to ensure optimal management. 
             </p>
             <div class="row">
               <div class="col-12 imgBox">
@@ -291,18 +297,18 @@
             </p>
             <h3>RESULTS</h3>
             <p>
-              The pages are built on a boostrap template and most of the animations are implemented with scrollmagic. The develoment environment was set up with Vagrant and synchronized with Github. To improve the performance, the content is delivered by a CDN from Amazon Web Services and Google Analytics was implemented to measure user interaction on the Marketing Pages as well as on the shop. <br/>
-              The migration of the sites to Wordpress required the CMS to have a customized template, work with a CDN and being able add language options which was achieved by multiple plugins and custom solutions.  
+              The pages are built with the Boostrap Framework and most of the animations are implemented with scrollmagic. The develoment environment was set up with Vagrant and synchronized with Github. To improve the performance, the content is delivered by a CDN from Amazon Web Services and Google Analytics was implemented to measure user interaction on the Marketing Pages as well as on the shop.<br/>
+              The migration of the sites to Wordpress required the CMS to have a customized template, work with a CDN and being able to add language options, which was achieved by multiple plugins and custom solutions.  
             </p>
             <p>
               <a href="https://www.bragi.de"><button type="button" class="btn goto">GO TO SITE</button></a>
             </p>
           </div>
-          <div class="col-md-8 col-12 itemImageMult">
+          <div class="col-md-6 col-12 itemImageMult">
             <div class="multipleImg leftImg" >
               <img src="img/portfolio_details/bragi_hp.jpg">   
             </div>
-            <div class="multipleImg rightImg itemImageLarge" >
+            <div class="multipleImg rightImg" >
               <img src="img/portfolio_details/bragi_dash.jpg">
             </div>
           </div>
@@ -322,14 +328,14 @@
         </div>
 
         <div class="row">
-          <div class="col-md-4 col-12">
+          <div class="col-md-6 col-12 portfolioText">
             <h1>VERTEMO</h1>
             <p>
-              Vertemo is a event technology website that serves mostly as a business card. The original page was outdated, so a complete redesign was necessary. 
+              Vertemo is a event technology website that serves mainly as a business card. The original page was outdated, so a complete redesign was necessary. 
             </p>
             <h3>MADE WITH</h3>
             <p>
-              Since the page has mainly representative purpose, it needed to be simple and clear, so the design was based on the one page template Ageny[link]. There weren't many content changes expected to be and the web space was limited, for this reason the page is pure frontend without a CMS.
+              Since the page has mainly representative purpose, it needed to be simple and clear, so the design was based on the one page template <a href="https://startbootstrap.com/template-overviews/agency/">Agency</a>. There weren't many content changes expected to happen and the web space was limited, for this reason the page is pure frontend without a CMS.
             </p>
             <div class="row">
               <div class="col-12 imgBox">
@@ -345,14 +351,14 @@
             <h3>RESULTS</h3>
             <p>
               The template is based on Boostrap 3 and the scrolling animations are implemented with scrollmagic. The page was built to load fast (score of x on pagespeed) and to be presentable on Google and Facebook links.<br/>
-              The only thing that stayed the same, compared to the previous version, was the logo. The new design kept the colors and was built around the idea of light design, which is the central occupation of the person presented. 
+              The only thing that stayed the same, compared to the previous version, was the logo. The new design kept the colors and was built around the idea of light design, which is the central occupation of the presented company. 
             </p>
             <p>
               <a href="http://www.vertemo.de"><button type="button" class="btn goto">GO TO SITE</button></a>
             </p>
             <p><a href="https://github.com/MomokoSanchez/Vertemo"><i class="fa fa-github fa-2x"></i>Find me on github</a></p>
           </div>
-          <div class="col-md-8 col-12 itemImage">
+          <div class="col-md-6 col-12 itemImage">
               <img src="img/portfolio_details/vertemo.jpg">
           </div>
         </div>
@@ -371,14 +377,14 @@
         </div>
 
         <div class="row">
-          <div class="col-md-4 col-12">
+          <div class="col-md-6 col-12 portfolioText">
             <h1>ASKARI ZEREN</h1>
             <p>
-              AskariZeren is a german-based real estate boutique that needed a new page to present their products which are not only real estates to sell, but also consulting for vendors and buyers. 
+              AskariZeren is a German real estate boutique that needed a new page to present their products which are not only real estates for sale, but also consulting for vendors and buyers. 
             </p>
             <h3>MADE WITH</h3>
             <p>
-              The goal was to present the different areas of expertise in a clear and concise way while conveying a reputable look and feel. The backend needed to be manageable, especially for adding and removing real estate objects. 
+              The goal was to present the different areas of expertise in a clear and concise way, while conveying a reputable look and feel. The backend needed to be manageable, especially for adding and removing real estate objects. 
             </p>
             <div class="row">
               <div class="col-12 imgBox">
@@ -393,8 +399,8 @@
             </p>
             <h3>RESULTS</h3>
             <p>
-              The page was built with Boostrap 3, based on the Agency template. To highlight the detailed content of the different areas, small subpages were created that don't require the page to reload completeley. <br/>
-              The template was implemented with wordpress with help from the ACF-Plugin. Multiple options for representing and managing the real estates were considered and an iFrame has been prepared and will soon be implemented to replace the current static content.  
+              The page was built with Boostrap 3, based on the <a href="https://startbootstrap.com/template-overviews/agency/">Agency</a> template. To highlight the detailed content of the different areas, small subpages were created that don't require the page to reload completeley. <br/>
+              The template was implemented with WordPress with help from the ACF-Plugin. Multiple options for representing and managing the real estates were considered and an iFrame has been prepared and will soon be implemented to replace the current static content.  
             </p>
             <p>
               <a href="http://www.askarizeren.de"><button type="button" class="btn goto">GO TO SITE</button></a>
@@ -403,7 +409,7 @@
               <a href="https://github.com/MomokoSanchez/AskariZeren"><i class="fa fa-github fa-2x"></i>Find me on github</a>
             </p>
           </div>
-          <div class="col-md-8 col-12 itemImage">
+          <div class="col-md-6 col-12 itemImage">
               <img src="img/portfolio_details/askarizeren.jpg">
           </div>
         </div>
@@ -422,14 +428,14 @@
         </div>
 
         <div class="row">
-          <div class="col-md-4 col-12">
+          <div class="col-md-6 col-12 portfolioText">
             <h1>MADE BY MOMOKO</h1>
             <p>
               This page simply has the purpose to convince you, that I am the perfect match for your job opening. Thus it needed to be nice and friendly and have some eye-catching animations right from the beginning. 
             </p>
             <h3>MADE WITH</h3>
             <p>
-              The page needed to be created in a short time period whith the ideal outcome to be fancy and responsive at the same time
+              The page needed to be created in a short time period whith the ideal outcome to be fancy and responsive at the same time.
             </p>
             <div class="row">
               <div class="col-12 imgBox">
@@ -451,7 +457,7 @@
             </p>
             <p><a href="https://github.com/MomokoSanchez/AskariZeren"><i class="fa fa-github fa-2x"></i>Find me on github</a></p>
           </div>
-          <div class="col-md-8 col-12 itemImage">
+          <div class="col-md-6 col-12 itemImage">
               <img src="img/portfolio_details/askarizeren-cropped.jpg">
           </div>
         </div>
@@ -545,7 +551,9 @@
 
     <!-- custom JS -->
     <script src="js/functions.min.js"></script>
- 
 
+    <!-- scrollreveal -->
+    <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+ 
   </body>
 </html>

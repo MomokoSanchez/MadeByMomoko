@@ -135,6 +135,14 @@ section:nth-child(odd){
 	overflow: hidden;
 
 	nav, #ioffer, #portfolio, #toolbox{
+		-webkit-backface-visibility: hidden;
+		-webkit-perspective: 1000;
+		-webkit-transform: translate3d(0,0,0);
+		-webkit-transform: translateZ(0);
+		backface-visibility: hidden;
+		perspective: 1000;
+		transform: translate3d(0,0,0);
+		transform: translateZ(0);
 		filter: blur(5px);		
 	}
 }
@@ -155,6 +163,11 @@ section:nth-child(odd){
 	}
 	button:focus {
 	    outline-color: $main-color;
+
+	    //large nav
+	    @media(min-width: $min-desktop-sm){
+	    	outline-color: none;
+	    }
 	}
 
 	.navbar-collapse{
@@ -185,58 +198,95 @@ section:nth-child(odd){
 #stars{
     	position: absolute;
     	width: 100%;
-    	height: 70vh;
+    	height: 100vh;
     	background: url('../img/night-stars.png');
     	@include full-bg-img;
     	background-attachment: fixed;
-    	opacity: 0;
+    	opacity: 1;
 
 }
+
 #home{
-	height: 70vh; //remember iPhone 5
+	height: 100vh; //remember iPhone 5
 	/* mixin does not cover all options, necessary? */
-	@include linear-gradient(to bottom, rgba(123,157,194,1) 0%, rgba(144,170,193,1) 8%, rgba(220,214,190,1) 49%, rgba(254,231,163,1) 66%, rgba(249,161,139,1) 75%);
+	@include linear-gradient(rgb(  9,  0,  55 ) 15%, 
+							 rgb( 47, 41,  79 ) 65%, 
+							 rgb( 49, 56, 100 ) 85%, 
+							 rgb( 51, 78, 125 ) 95%, 
+							 rgb( 48, 88, 140 ) 125%);
 	@include full-bg-img;
 	@include transition(background 0.5s);
     background-attachment: fixed;
 
 	.container{
-		padding-top: calc(35vh - 135px);
+		padding-top: calc(50vh - 115px);
+		@media(max-width: $max-tablet){
+			padding-top: calc(47vh - 195px);
+		}
 
 		.headerContainer{
 			margin-left: 20px;
 
 			.outerBox{
-				background: rgba(255,255,255,0.5);
+				background: rgba(255,255,255,0);
 				padding: 17px;
-
-				.innerBox{
-					background: rgba(255,255,255,0.5);	
+				@include transition(background 2s);
+				@include transition-delay(1.2s);
+		
+					&.show{
+						background: rgba(255,255,255,0.5);
+					}
+							
+					.innerBox{
+					background: rgba(255,255,255,0);	
 					margin-top: -35px;
 					margin-left: -35px;	
 					padding-top: 80px;
 					padding-left: 20px;
 					padding-bottom: 40px;
-				}
-			}
+					@include transition(background 2.5s);
 
-			h1{
-				&::after{
-					background: $main-color;
-				    content: "";
-				    display: block;
-				    width: 40px;
-				    height: 4px;
-				    margin: 0 auto;
-				    margin-top: 17px;
+					&.show{
+						background: rgba(255,255,255,0.5);
+					}
 
-				    @media (max-width: $max-tablet){
-				    	margin-top: 12px;
-				    }
-				}
+					.mainText{
 
-				&:nth-child(2)::after{
-					content: none;
+						color: rgba(0,0,0,0);
+						@include transition(color 2.5s);
+						@include transition-delay(2.2s);
+
+						&.show{
+							color: rgba(0,0,0,1);
+						}
+
+						h1{
+							&::after{
+								content: '';
+								background: $main-color;
+							    content: "";
+							    display: block;
+							    width: 0;
+							    height: 4px;
+							    margin: 0 auto;
+							    margin-top: 17px;	
+								@include transition(width 1s);
+								@include transition-delay(0.7s);
+							}
+
+							&.separator::after{
+							    width: 50px;			  
+
+							    @media (max-width: $max-tablet){
+							    	margin-top: 12px;
+							    }
+							}
+
+							&:nth-child(2)::after{
+								content: none;
+							}
+						}
+					}
 				}
 			}
 		}
@@ -288,17 +338,47 @@ section:nth-child(odd){
 				@include full-bg-img;
 				@include transition(all 0.5s);
 
+				&::before{
+					content: '';
+					position: absolute;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					opacity: 0;
+					@include transition(opacity 0.5s);
+				}
+
 				&#item1{
-					background-image: url('../img/portfolio/bragi_thedash.jpg');
+					background-image: url('../img/portfolio/bragi_thedash-blass.jpg');
+
+					&::before{
+						background-image: url('../img/portfolio/bragi_thedash.jpg');
+						@include full-bg-img;
+					}
 				}
 				&#item2{
-					background-image: url('../img/portfolio/vertemo.jpg');
+					background-image: url('../img/portfolio/vertemo-blass.jpg');
+
+					&::before{
+						background-image: url('../img/portfolio/vertemo.jpg');
+						@include full-bg-img;
+					}
 				}
 				&#item3{
-					background-image: url('../img/portfolio/askarizeren.jpg');
+					background-image: url('../img/portfolio/askarizeren-blass.jpg');
+
+					&::before{
+						background-image: url('../img/portfolio/askarizeren.jpg');
+						@include full-bg-img;
+					}
 				}
 				&#item4{
-					background-image: url('../img/portfolio/madebymomoko.jpg');
+					background-image: url('../img/portfolio/madebymomoko-blass.jpg');
+
+					&::before{
+						background-image: url('../img/portfolio/madebymomoko.jpg');
+						@include full-bg-img;
+					}
 				}
 
 				@media(max-width: $max-tablet){
@@ -307,16 +387,16 @@ section:nth-child(odd){
 					margin-bottom: 29px;
 
 					&#item1{
-						background-image: url('../img/portfolio/bragi_thedash_tablet.jpg');
+						background-image: url('../img/portfolio/bragi_thedash_tablet-blass.jpg');
 					}
 					&#item2{
-						background-image: url('../img/portfolio/vertemo_tablet.jpg');
+						background-image: url('../img/portfolio/vertemo_tablet-blass.jpg');
 					}
 					&#item3{
-						background-image: url('../img/portfolio/askarizeren_tablet.jpg');
+						background-image: url('../img/portfolio/askarizeren_tablet-blass.jpg');
 					}
 					&#item4{
-						background-image: url('../img/portfolio/madebymomoko_tablet.jpg');
+						background-image: url('../img/portfolio/madebymomoko_tablet-blass.jpg');
 					}
 				}
 
@@ -325,16 +405,16 @@ section:nth-child(odd){
 					height: 40.19vw;
 
 					&#item1{
-						background-image: url('../img/portfolio/bragi_thedash_mobile.jpg');
+						background-image: url('../img/portfolio/bragi_thedash_mobile-blass.jpg');
 					}
 					&#item2{
-						background-image: url('../img/portfolio/vertemo_mobile.jpg');
+						background-image: url('../img/portfolio/vertemo_mobile-blass.jpg');
 					}
 					&#item3{
-						background-image: url('../img/portfolio/askarizeren_mobile.jpg');
+						background-image: url('../img/portfolio/askarizeren_mobile-blass.jpg');
 					}
 					&#item4{
-						background-image: url('../img/portfolio/madebymomoko_mobile.jpg');
+						background-image: url('../img/portfolio/madebymomoko_mobile-blass.jpg');
 					}
 				}
 
@@ -343,6 +423,9 @@ section:nth-child(odd){
 					height: 19.33vw;
 					margin-top: -2.5vw;
 					@include box-shadow( 20px 15px 35px 6px #bfbfbf );
+					&::before{
+						opacity: 1;
+					}
 				}
 			}
 		}
@@ -356,35 +439,55 @@ section:nth-child(odd){
 		margin-top: 20px;
 
 		.col-md, .col-sm-3, .col-4{
-			padding: 0 5px;
+			padding: 0 10px;
 
 			img{
 				width: 100%;
-				@media(max-width: $max-mobile){
-					padding: 0 10px;
-				}
-				@media(max-width: $max-tablet){
-					padding: 0 6px;
+
+				&.cover{
+					@media(max-width: $max-tablet){
+						display: none;
+					}
 				}
 
 				&.unCover{
 					position: absolute;
 					top: 0;
 					left: 0;
-					opacity: 0;
-					padding: 0 5px;
-					@include transition(opacity 0.8s,  padding 0.8s);
-				}
-				&.unCover:hover{
 					opacity: 1;
-					padding: 0 4px;
+					padding: 0 10px;
+					@include transition(opacity 0.8s,  padding 0.8s);
+
+					@media(min-width: $min-desktop-sm){
+						opacity: 0;
+
+						&.unCover:hover{
+							opacity: 1;
+							padding: 0 8px;
+						}
+					}
+
+					//mobile view without hover effect
+					@media(max-width: $max-tablet){
+						padding: 0 5px;
+						position: relative;
+					}
+					@media(max-width: $max-mobile){
+						padding: 0 0 5px;
+					}
 				}
+
+
 			}
 
 			p{
 				margin-top: 8px; 
 				text-align: center;
 				font-size: 13px;
+
+				@media(max-width: $max-desktop-sm){
+					font-size: 11px;
+				}
 				@media(max-width: $max-mobile){
 					margin-top: 0;
 				}
@@ -454,6 +557,12 @@ section:nth-child(odd){
     	}
     }
 
+    .portfolioText{
+    	@media(min-width: $min-desktop-sm){
+    		padding-right: 8%;
+    	}
+    }
+
 	.imgBox{ 
 
 		img{
@@ -513,6 +622,13 @@ section:nth-child(odd){
 		    display: none; 
 		}
 
+		@media(max-width: $max-mobile){
+			position: relative;
+			margin: 40px 0 0;
+			padding: 0;
+    		height: 60vh;
+		}
+
 		img{
 			width: 100%;
 			&::-webkit-scrollbar { 
@@ -530,6 +646,13 @@ section:nth-child(odd){
 		margin-top: 155px;
 		margin-bottom: 75px;
 		padding: 0;
+
+		@media(max-width: $max-mobile){
+			position: relative;
+			margin: 40px 0 0;
+			padding: 0;
+    		height: 60vh;
+		}
 
 	    .multipleImg{
 	    	position: absolute;
@@ -555,7 +678,9 @@ section:nth-child(odd){
 			}
 
 			&.leftImg{
-				margin: 10% 35% 10% 0;
+				margin: 0 15% 0 0;
+				z-index: 1060;
+				width: 85%;
 			}
 
 			//for hover over different img
@@ -565,7 +690,6 @@ section:nth-child(odd){
 			&.leftImg.itemImageLarge{
 				margin: 0 15% 0 0;
 				animation: moveItLeft 0.7s;
-				z-index: 1060;
 			}
 
 			&.rightImg.itemImageLarge{
@@ -574,6 +698,8 @@ section:nth-child(odd){
 			}
 
 			&.leftImg.itemImageSmall{
+				margin: 10% 35% 10% 0;
+				width: 65%;
 				animation: moveItRight 0.7s;
 			}
 	    }
