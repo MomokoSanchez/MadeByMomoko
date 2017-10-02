@@ -172,13 +172,14 @@ function changeParallaxImg(){
 	}	
 	else if(scrollPosition < offsetMailBottom && scrollPosition >= offsetSeedlingBottom){
 		$('#stars').removeClass('toFront');
-		$('#stars').css('z-index','1');
+		$('#stars').css('z-index','-1');
 		$('#iofferImg').addClass('toFront');
 		$('#contactImg').removeClass('toFront');
+		console.log("why no back?")
 	}
 	else{
 		$('#stars').removeClass('toFront');
-		$('#stars').css('z-index','1');
+		$('#stars').css('z-index','-1');
 		$('#iofferImg').removeClass('toFront');
 		$('#contactImg').addClass('toFront');
 	}	
