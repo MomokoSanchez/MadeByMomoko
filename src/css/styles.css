@@ -94,6 +94,9 @@ p {
       font-size: 12px;
       margin-bottom: 18px; } }
 
+section:nth-child(even) {
+  background-color: white; }
+
 section:nth-child(odd) {
   background-color: #F2F2F2; }
 
@@ -180,14 +183,27 @@ section:nth-child(odd) {
   position: absolute;
   width: 100%;
   height: 100vh;
-  background: url("../img/night-stars.png");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  opacity: 1; }
+  background: transparent;
+  z-index: 1100; }
+  #stars::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-image: url("../img/night-stars.png");
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
+    z-index: -2; }
+  #stars.toFront::before {
+    z-index: -1; }
 
 #home {
+  position: relative;
   height: 100vh;
   /* mixin does not cover all options, necessary? */
   background: #2f294f;
@@ -197,6 +213,9 @@ section:nth-child(odd) {
   background: -ms-linear-gradient(90deg-#090037 15%, #2f294f 65%, #313864 85%, #334e7d 95%, #30588c 125%);
   background: linear-gradient(#090037 15%, #2f294f 65%, #313864 85%, #334e7d 95%, #30588c 125%);
   background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
   background-repeat: no-repeat;
   -webkit-transition: background 0.5s;
@@ -209,7 +228,7 @@ section:nth-child(odd) {
     padding-top: calc(50vh - 115px); }
     @media (max-width: 767px) {
       #home .container {
-        padding-top: calc(47vh - 195px); } }
+        padding-top: calc(45vh - 130px); } }
     #home .container .headerContainer {
       margin-left: 20px; }
       #home .container .headerContainer .outerBox {
@@ -220,10 +239,10 @@ section:nth-child(odd) {
         -ms-transition: background 2s;
         -o-transition: background 2s;
         transition: background 2s;
-        -webkit-transition-delay: 1.2s;
-        -moz-transition-delay: 1.2s;
-        -o-transition-delay: 1.2s;
-        transition-delay: 1.2s; }
+        -webkit-transition-delay: 1s;
+        -moz-transition-delay: 1s;
+        -o-transition-delay: 1s;
+        transition-delay: 1s; }
         #home .container .headerContainer .outerBox.show {
           background: rgba(255, 255, 255, 0.5); }
         #home .container .headerContainer .outerBox .innerBox {
@@ -278,24 +297,53 @@ section:nth-child(odd) {
                   margin-top: 12px; } }
             #home .container .headerContainer .outerBox .innerBox .mainText h1:nth-child(2)::after {
               content: none; }
+  #home .scrollDown {
+    position: absolute;
+    width: 50px;
+    left: calc(50% - 25px);
+    bottom: 14px;
+    margin: 0 auto;
+    padding: 10px 10px 6px;
+    background: rgba(255, 255, 255, 0.5);
+    z-index: 1101; }
+    @media (max-width: 767px) {
+      #home .scrollDown {
+        bottom: 70px; } }
+    #home .scrollDown .fa {
+      margin: 0;
+      padding: 0 5px; }
 
 #icando .fa {
   margin-top: 20px; }
 
 #iofferImg {
   height: 40vh;
-  background-image: url("../img/seedling-blass.jpg");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed; }
-  @media (max-width: 767px) {
-    #iofferImg {
-      background-image: url("../img/seedling-mobile.jpg");
-      background-position: center center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed; } }
+  background: transparent; }
+  #iofferImg::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-image: url("../img/seedling-blass.jpg");
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
+    z-index: -2; }
+    @media (max-width: 767px) {
+      #iofferImg::before {
+        background-image: url("../img/seedling-mobile.jpg");
+        background-position: center center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-repeat: no-repeat; } }
+  #iofferImg.toFront::before {
+    z-index: -1; }
 
 #portfolio .imgContainer {
   padding-top: 0;
@@ -316,6 +364,9 @@ section:nth-child(odd) {
       margin-bottom: 43px;
       cursor: pointer;
       background-position: center center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
       background-size: cover;
       background-repeat: no-repeat;
       -webkit-transition: all 0.5s;
@@ -340,6 +391,9 @@ section:nth-child(odd) {
         #portfolio .imgContainer .row .portfolioImg#item1::before {
           background-image: url("../img/portfolio/bragi_thedash.jpg");
           background-position: center center;
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
           background-size: cover;
           background-repeat: no-repeat; }
       #portfolio .imgContainer .row .portfolioImg#item2 {
@@ -347,6 +401,9 @@ section:nth-child(odd) {
         #portfolio .imgContainer .row .portfolioImg#item2::before {
           background-image: url("../img/portfolio/vertemo.jpg");
           background-position: center center;
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
           background-size: cover;
           background-repeat: no-repeat; }
       #portfolio .imgContainer .row .portfolioImg#item3 {
@@ -354,6 +411,9 @@ section:nth-child(odd) {
         #portfolio .imgContainer .row .portfolioImg#item3::before {
           background-image: url("../img/portfolio/askarizeren.jpg");
           background-position: center center;
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
           background-size: cover;
           background-repeat: no-repeat; }
       #portfolio .imgContainer .row .portfolioImg#item4 {
@@ -361,6 +421,9 @@ section:nth-child(odd) {
         #portfolio .imgContainer .row .portfolioImg#item4::before {
           background-image: url("../img/portfolio/madebymomoko.jpg");
           background-position: center center;
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
           background-size: cover;
           background-repeat: no-repeat; }
       @media (max-width: 767px) {
@@ -369,12 +432,44 @@ section:nth-child(odd) {
           margin-bottom: 29px; }
           #portfolio .imgContainer .row .portfolioImg#item1 {
             background-image: url("../img/portfolio/bragi_thedash_tablet-blass.jpg"); }
+            #portfolio .imgContainer .row .portfolioImg#item1::before {
+              background-image: url("../img/portfolio/bragi_thedash_tablet.jpg");
+              background-position: center center;
+              -webkit-background-size: cover;
+              -moz-background-size: cover;
+              -o-background-size: cover;
+              background-size: cover;
+              background-repeat: no-repeat; }
           #portfolio .imgContainer .row .portfolioImg#item2 {
             background-image: url("../img/portfolio/vertemo_tablet-blass.jpg"); }
+            #portfolio .imgContainer .row .portfolioImg#item2::before {
+              background-image: url("../img/portfolio/vertemo_tablet.jpg");
+              background-position: center center;
+              -webkit-background-size: cover;
+              -moz-background-size: cover;
+              -o-background-size: cover;
+              background-size: cover;
+              background-repeat: no-repeat; }
           #portfolio .imgContainer .row .portfolioImg#item3 {
             background-image: url("../img/portfolio/askarizeren_tablet-blass.jpg"); }
+            #portfolio .imgContainer .row .portfolioImg#item3::before {
+              background-image: url("../img/portfolio/askarizeren_tablet.jpg");
+              background-position: center center;
+              -webkit-background-size: cover;
+              -moz-background-size: cover;
+              -o-background-size: cover;
+              background-size: cover;
+              background-repeat: no-repeat; }
           #portfolio .imgContainer .row .portfolioImg#item4 {
-            background-image: url("../img/portfolio/madebymomoko_tablet-blass.jpg"); } }
+            background-image: url("../img/portfolio/madebymomoko_tablet-blass.jpg"); }
+            #portfolio .imgContainer .row .portfolioImg#item4::before {
+              background-image: url("../img/portfolio/madebymomoko_tablet.jpg");
+              background-position: center center;
+              -webkit-background-size: cover;
+              -moz-background-size: cover;
+              -o-background-size: cover;
+              background-size: cover;
+              background-repeat: no-repeat; } }
       @media (max-width: 543px) {
         #portfolio .imgContainer .row .portfolioImg {
           height: 40.19vw; }
@@ -441,11 +536,32 @@ section:nth-child(odd) {
 
 #contactImg {
   height: 40vh;
-  background-image: url("../img/write_mail.jpg");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed; }
+  background: transparent; }
+  #contactImg::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-image: url("../img/write_mail.jpg");
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
+    z-index: -2; }
+    @media (max-width: 767px) {
+      #contactImg::before {
+        background-image: url("../img/write_mail.jpg");
+        background-position: center center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-repeat: no-repeat; } }
+  #contactImg.toFront::before {
+    z-index: -1; }
 
 #impressum .container {
   padding-top: 20px;

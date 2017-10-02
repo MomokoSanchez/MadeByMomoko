@@ -75,6 +75,11 @@ p{
 	}
 }
 
+//set backgrounds
+section:nth-child(even){
+	background-color: white;
+}
+
 section:nth-child(odd){
 	background-color: $background-color;
 }
@@ -196,17 +201,30 @@ section:nth-child(odd){
 
 //home
 #stars{
-    	position: absolute;
-    	width: 100%;
-    	height: 100vh;
-    	background: url('../img/night-stars.png');
-    	@include full-bg-img;
-    	background-attachment: fixed;
-    	opacity: 1;
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	background: transparent;
+	z-index: 1100;
 
+    &::before{
+    	content: '';    
+    	width: 100%;
+	    height: 100%;
+	    top: 0;
+		background-image: url('../img/night-stars.png');
+		@include full-bg-img;
+	    position: fixed;
+		z-index: -2;
+    }
+
+    &.toFront::before{
+    	z-index: -1;
+    }
 }
 
 #home{
+	position: relative;
 	height: 100vh; //remember iPhone 5
 	/* mixin does not cover all options, necessary? */
 	@include linear-gradient(rgb(  9,  0,  55 ) 15%, 
@@ -221,7 +239,7 @@ section:nth-child(odd){
 	.container{
 		padding-top: calc(50vh - 115px);
 		@media(max-width: $max-tablet){
-			padding-top: calc(47vh - 195px);
+			padding-top: calc(45vh - 130px);
 		}
 
 		.headerContainer{
@@ -231,7 +249,7 @@ section:nth-child(odd){
 				background: rgba(255,255,255,0);
 				padding: 17px;
 				@include transition(background 2s);
-				@include transition-delay(1.2s);
+				@include transition-delay(1s);
 		
 					&.show{
 						background: rgba(255,255,255,0.5);
@@ -291,6 +309,26 @@ section:nth-child(odd){
 			}
 		}
 	}
+
+	.scrollDown{
+	    position: absolute;
+		width: 50px;
+	    left: calc(50% - 25px);
+    	bottom: 14px;
+	    margin: 0 auto;
+	    padding: 10px 10px 6px;
+		background: rgba(255,255,255,0.5);
+		z-index: 1101;
+
+		@media(max-width: $max-tablet){
+			bottom: 70px;
+		}
+
+	    .fa{
+    		margin: 0;
+	    	padding: 0 5px;
+	    }
+	}
 }
 
 //icando
@@ -303,13 +341,25 @@ section:nth-child(odd){
 //ioffer
 #iofferImg{
 	height: 40vh;
-	background-image: url('../img/seedling-blass.jpg');
-	@include full-bg-img;
-    background-attachment: fixed;
-    @media(max-width: $max-tablet){
-		background-image: url('../img/seedling-mobile.jpg');
+	background: transparent;
+
+    &::before{
+    	content: '';    width: 100%;
+	    height: 100%;
+	    top: 0;
+		background-image: url('../img/seedling-blass.jpg');
 		@include full-bg-img;
-	    background-attachment: fixed;
+	    position: fixed;
+		z-index: -2;
+
+	    @media(max-width: $max-tablet){
+			background-image: url('../img/seedling-mobile.jpg');
+			@include full-bg-img;
+	    }
+    }
+
+    &.toFront::before{
+    	z-index: -1;
     }
 }
 
@@ -388,15 +438,35 @@ section:nth-child(odd){
 
 					&#item1{
 						background-image: url('../img/portfolio/bragi_thedash_tablet-blass.jpg');
+
+						&::before{
+							background-image: url('../img/portfolio/bragi_thedash_tablet.jpg');
+							@include full-bg-img;
+						}
 					}
 					&#item2{
 						background-image: url('../img/portfolio/vertemo_tablet-blass.jpg');
+
+						&::before{
+							background-image: url('../img/portfolio/vertemo_tablet.jpg');
+							@include full-bg-img;
+						}
 					}
 					&#item3{
 						background-image: url('../img/portfolio/askarizeren_tablet-blass.jpg');
+
+						&::before{
+							background-image: url('../img/portfolio/askarizeren_tablet.jpg');
+							@include full-bg-img;
+						}
 					}
 					&#item4{
 						background-image: url('../img/portfolio/madebymomoko_tablet-blass.jpg');
+
+						&::before{
+							background-image: url('../img/portfolio/madebymomoko_tablet.jpg');
+							@include full-bg-img;
+						}
 					}
 				}
 
@@ -500,9 +570,27 @@ section:nth-child(odd){
 //contact
 #contactImg{
 	height: 40vh;
-	background-image: url('../img/write_mail.jpg');
-	@include full-bg-img;
-    background-attachment: fixed;
+	background: transparent;
+
+    &::before{
+    	content: '';    
+    	width: 100%;
+	    height: 100%;
+	    top: 0;
+		background-image: url('../img/write_mail.jpg');
+		@include full-bg-img;
+	    position: fixed;
+		z-index: -2;
+
+	    @media(max-width: $max-tablet){
+			background-image: url('../img/write_mail.jpg');
+			@include full-bg-img;
+	    }
+    }
+
+    &.toFront::before{
+    	z-index: -1;
+    }
 }
 
 //impressum
