@@ -175,7 +175,6 @@ function changeParallaxImg(){
 		$('#stars').css('z-index','-1');
 		$('#iofferImg').addClass('toFront');
 		$('#contactImg').removeClass('toFront');
-		console.log("why no back?")
 	}
 	else{
 		$('#stars').removeClass('toFront');
