@@ -3,7 +3,6 @@
 
 
 //change parallax images on scroll
-
 function changeParallaxImg(){
 	var scrollPosition = $(document).scrollTop();
 	var offsetSeedling = $('#isearchImg').offset(); //use offset.top
@@ -43,11 +42,10 @@ $(document).ready( function(){
 		};
 	});
 
-	
-
+	//change parallax images 
 	changeParallaxImg();
 
-	//fade text in on scroll
+	//add text fade library on scroll - requires ScorllReveal
 	window.sr = ScrollReveal();
 	sr.reveal('.reveal', { origin: 'bottom', duration: 1000, delay: 250, });
 
@@ -121,7 +119,7 @@ $(document).mousemove( function(event){
 	}
 }); 
 
-//scroll funcitons
+//change parallax images on scroll
 $(window).scroll(function(){
 
 	changeParallaxImg();
