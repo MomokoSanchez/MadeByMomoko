@@ -9,6 +9,7 @@ Header set Cache-Control "max-age=2592000, public"
 	Header set Cache-Control "max-age=2592000, public"
 </filesMatch>
 
+# Image compression
 <IfModule mod_deflate.c>
 	AddOutputFilterByType DEFLATE text/html
 	AddOutputFilterByType DEFLATE text/css
@@ -21,6 +22,7 @@ Header set Cache-Control "max-age=2592000, public"
 	AddOutputFilterByType DEFLATE application/x-javascript
 </IfModule>
 
+# ETag removal
 <FilesMatch "\.(ico|pdf|jpg|jpeg|png|js|css)(\.gz)?$">
 	Header unset ETag
 	FileETag None

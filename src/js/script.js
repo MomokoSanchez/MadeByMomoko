@@ -3,7 +3,7 @@
 
 
 //change parallax images on scroll
-function changeParallaxImg(){
+function updateParallaxImg(){
 	var scrollPosition = $(document).scrollTop();
 	var offsetSeedling = $('#isearchImg').offset(); //use offset.top
 	var offsetSeedlingBottom = ( offsetSeedling.top - ( $(window).height() * 1.5 ));
@@ -42,8 +42,8 @@ $(document).ready( function(){
 		};
 	});
 
-	//change parallax images 
-	changeParallaxImg();
+	//update parallax images depending on scroll position
+	updateParallaxImg();
 
 	//add text fade library on scroll - requires ScorllReveal
 	window.sr = ScrollReveal();
@@ -88,15 +88,15 @@ $(document).ready( function(){
 	//hover multiple portfolio detail pages
 	$('.rightImg').hover(function(){
 		$(this).addClass('itemImageLarge');
-		$('.leftImg').removeClass('itemImageLarge');
 		$(this).removeClass('itemImageSmall');
+		$('.leftImg').removeClass('itemImageLarge');
 		$('.leftImg').addClass('itemImageSmall');
 	})
 	$('.leftImg').hover(function(){
 		if($(this).hasClass('itemImageSmall')){
 			$(this).addClass('itemImageLarge');
-			$('.rightImg').removeClass('itemImageLarge');
 			$(this).removeClass('itemImageSmall');
+			$('.rightImg').removeClass('itemImageLarge');
 			$('.rightImg').addClass('itemImageSmall');		
 		}
 	})  
@@ -122,6 +122,6 @@ $(document).mousemove( function(event){
 //change parallax images on scroll
 $(window).scroll(function(){
 
-	changeParallaxImg();
+	updateParallaxImg();
 });
 
