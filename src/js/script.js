@@ -1,7 +1,5 @@
 //Momoko Theme JavaScript
 
-
-
 //change parallax images on scroll
 function updateParallaxImg(){
 	var scrollPosition = $(document).scrollTop();
@@ -113,7 +111,6 @@ $(document).ready( function(){
 
 //change Sky on mouse movement
 $(document).mousemove( function(event){
-
 	if(animationFinished){
 		simulateTheSun( event.clientY ); 
 	}
@@ -121,7 +118,6 @@ $(document).mousemove( function(event){
 
 //change parallax images on scroll
 $(window).scroll(function(){
-
 	updateParallaxImg();
 });
 
