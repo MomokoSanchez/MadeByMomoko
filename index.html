@@ -52,7 +52,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link page-scroll active" href="#home">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link page-scroll" href="#thisisme">This is me</a>
+          <a class="nav-item nav-link page-scroll" href="#aboutme">About me</a>
           <a class="nav-item nav-link page-scroll" href="#isearch">I offer</a>
           <a class="nav-item nav-link page-scroll" href="#portfolio">Portfolio</a>
           <a class="nav-item nav-link page-scroll" href="#toolbox">Toolbox</a>
@@ -86,13 +86,13 @@
     </header>
 
     <!-- ido block -->
-    <section id="thisisme">
+    <section id="aboutme">
       <div class="container">
         <div class="row">
           <div class="col-12 col-md-11 col-lg-5 reveal">
-            <h1>THIS IS ME</h1>
+            <h1>ABOUT ME</h1>
             <p>
-              Do you need a website? Or maybe you already have an existing website but need some updates or want to know how to improve it? I'm here to help!<br/>I'm a Web Developer, experienced with WordPress and my focus lies on implementing modern, responsive websites as well as maintaing and optimizing existing pages.
+              Do you need a website? Or maybe you already have an existing website but need some updates or want to know how to improve it? I'm here to help!<br/>I'm a Web Developer, experienced with WordPress and SquareSpace and my focus lies on implementing modern, responsive websites as well as maintaing and optimizing existing pages.
             </p>
           </div>
           <div class="col-12 col-md-11 col-lg-7">
@@ -155,7 +155,7 @@
         <div class="row">
           <div class="col-12 col-md-10 col-lg-8 reveal">
             <h1>Portfolio</h1>
-            <p class="noMargin">This is a selection of my projects. I also maintain a couple of websites with different Content Management Systems and am constantly working on something new. Next in line might be a redesign of my <a href="http://www.keramik-patlan.de" target='_blank' rel="noopener noreferrer">first website</a>. I think, you can easily see why this is needed, right? </p>
+            <p class="noMargin">This is a selection of my projects. I also maintain a couple of websites with different Content Management Systems and am constantly working on something new. Currently I am working on <a href="http://www.keramik-patlan.de" target='_blank' rel="noopener noreferrer">this website</a> to set up an online store.</p>
           </div>
         </div>
       </div>
@@ -615,79 +615,64 @@
         }); 
       }
 
+      function getGradient(color1, color2, mouseHeight, percentile, area) {
+        var heroHeight =  $(window).height();
+        return  Math.round(color1 + (color2 - color1) * (mouseHeight / (heroHeight*percentile) - area));
+      }
+
       function simulateTheSun($move) {
-
-
         var scrollPosition = $(document).scrollTop();
         var heroHeight =  $(window).height();
 
-        if(scrollPosition <= heroHeight){
+        $dayGradient = [
+          [25,69,130,0],
+          [39,89,150,40],
+          [71,129,179,75],
+          [142,194,251,95],
+          [193,219,251,125]
+        ];
+
+        $sunriseGradient = [
+          [123,157,194,0],
+          [144,170,193,40],
+          [220,214,190,75],
+          [254,231,163,93],
+          [249,161,139,105]
+        ];
+
+        $nightGradient = [
+          [9,0,55,15],
+          [47,41,79,65],
+          [49,56,100,85],
+          [51,78,125,95],
+          [48,88,140,125]
+        ];
+
+        if(scrollPosition <= heroHeight) {
           $mouseHeight = $move;
 
-          //day colors
-          $day1 = [25,69,130,0];
-          $day2 = [39,89,150,40];
-          $day3 = [71,129,179,75];
-          $day4 = [142,194,251,95];
-          $day5 = [193,219,251,125];
-
-          //sunrise colorls
-          $sunrise1 = [123,157,194,0];
-          $sunrise2 = [144,170,193,40];
-          $sunrise3 = [220,214,190,75];
-          $sunrise4 = [254,231,163,93];
-          $sunrise5 = [249,161,139,105];
-
-          //night colors
-          $night1 = [9,0,55,15];
-          $night2 = [47,41,79,65];
-          $night3 = [49,56,100,85];
-          $night4 = [51,78,125,95];
-          $night5 = [48,88,140,125];
-
-
           //set night as default
-          $c1 = $night1;
-          $c2 = $night2;
-          $c3 = $night3;
-          $c4 = $night4;
-          $c5 = $night5;
+          $currentGradient = $nightGradient;
 
           $('#stars').css({
             opacity: 1
           })
 
           //change colors and percentage
-          if($mouseHeight < heroHeight){
+          if($mouseHeight < heroHeight) {
 
             //day
-            if($mouseHeight <= (heroHeight * 0.65) ){
-              $c1[0] = Math.round( $day1[0] + ($sunrise1[0] - $day1[0]) * (  $mouseHeight / (heroHeight*0.65) ) );
-              $c1[1] = Math.round( $day1[1] + ($sunrise1[1] - $day1[1]) * (  $mouseHeight / (heroHeight*0.65) ) );
-              $c1[2] = Math.round( $day1[2] + ($sunrise1[2] - $day1[2]) * (  $mouseHeight / (heroHeight*0.65) ) );
-              $c1[3] = Math.round( $day1[3] + ($sunrise1[3] - $day1[3]) * (  $mouseHeight / (heroHeight*0.65) ) ); 
+            if($mouseHeight <= (heroHeight * 0.65)) {
+              for ($i = 0; $i < $dayGradient.length; $i++) {
+                $currentGradient[0][$i] = getGradient($dayGradient[0][$i], $sunriseGradient[0][$i], $mouseHeight, 0.65, 0);
+                $currentGradient[1][$i] = getGradient($dayGradient[1][$i], $sunriseGradient[1][$i], $mouseHeight, 0.65, 0);
+                $currentGradient[2][$i] = getGradient($dayGradient[2][$i], $sunriseGradient[2][$i], $mouseHeight, 0.65, 0);
+                $currentGradient[3][$i] = getGradient($dayGradient[3][$i], $sunriseGradient[3][$i], $mouseHeight, 0.65, 0);
+                $currentGradient[4][$i] = getGradient($dayGradient[4][$i], $sunriseGradient[4][$i], $mouseHeight, 0.65, 0);
+              }
 
-              $c2[0] = Math.round( $day2[0] + ($sunrise2[0] - $day2[0]) * (  $mouseHeight / (heroHeight*0.65) ) );
-              $c2[1] = Math.round( $day2[1] + ($sunrise2[1] - $day2[1]) * (  $mouseHeight / (heroHeight*0.65) ) );
-              $c2[2] = Math.round( $day2[2] + ($sunrise2[2] - $day2[2]) * (  $mouseHeight / (heroHeight*0.65) ) );
-              $c2[3] = Math.round( $day2[3] + ($sunrise2[3] - $day2[3]) * (  $mouseHeight / (heroHeight*0.65) ) ); 
-
-              $c3[0] = Math.round( $day3[0] + ($sunrise3[0] - $day3[0]) * (  $mouseHeight / (heroHeight*0.65) ) );
-              $c3[1] = Math.round( $day3[1] + ($sunrise3[1] - $day3[1]) * (  $mouseHeight / (heroHeight*0.65) ) );
-              $c3[2] = Math.round( $day3[2] + ($sunrise3[2] - $day3[2]) * (  $mouseHeight / (heroHeight*0.65) ) );
-              $c3[3] = Math.round( $day3[3] + ($sunrise3[3] - $day3[3]) * (  $mouseHeight / (heroHeight*0.65) ) ); 
-
-              $c4[0] = Math.round( $day4[0] + ($sunrise4[0] - $day4[0]) * (  $mouseHeight / (heroHeight*0.65) ) );
-              $c4[1] = Math.round( $day4[1] + ($sunrise4[1] - $day4[1]) * (  $mouseHeight / (heroHeight*0.65) ) );
-              $c4[2] = Math.round( $day4[2] + ($sunrise4[2] - $day4[2]) * (  $mouseHeight / (heroHeight*0.65) ) );
-              $c4[3] = Math.round( $day4[3] + ($sunrise4[3] - $day4[3]) * (  $mouseHeight / (heroHeight*0.65) ) ); 
-
-              $c5[0] = Math.round( $day5[0] + ($sunrise5[0] - $day5[0]) * (  $mouseHeight / (heroHeight*0.65) ) );
-              $c5[1] = Math.round( $day5[1] + ($sunrise5[1] - $day5[1]) * (  $mouseHeight / (heroHeight*0.65) ) );
-              $c5[2] = Math.round( $day5[2] + ($sunrise5[2] - $day5[2]) * (  $mouseHeight / (heroHeight*0.65) ) );
-              $c5[3] = Math.round( $day5[3] + ($sunrise5[3] - $day5[3]) * (  $mouseHeight / (heroHeight*0.65) ) ); 
-
-              setBgColors($c1, $c2, $c3, $c4, $c5); 
+              setBgColors($currentGradient[0], $currentGradient[1], $currentGradient[2], $currentGradient[3], $currentGradient[4]); 
+              
               $('#stars').css({
                 opacity: 0
               })  
@@ -696,7 +681,8 @@
             //sunrise
             if($mouseHeight > ( heroHeight * 0.65 ) ){
 
-              setBgColors($sunrise1, $sunrise2, $sunrise3, $sunrise4, $sunrise5);
+              setBgColors($sunriseGradient[0], $sunriseGradient[1], $sunriseGradient[2], $sunriseGradient[3], $sunriseGradient[4]);
+              
               $('#stars').css({
                 opacity: 0
               })
@@ -704,33 +690,15 @@
 
             //night
             if($mouseHeight > (heroHeight * 0.75)){
+              for ($i = 0; $i < $dayGradient.length; $i++) {
+                $currentGradient[0][$i] = getGradient($sunriseGradient[0][$i], $nightGradient[0][$i], $mouseHeight, 0.25, 3);
+                $currentGradient[1][$i] = getGradient($sunriseGradient[1][$i], $nightGradient[1][$i], $mouseHeight, 0.25, 3);
+                $currentGradient[2][$i] = getGradient($sunriseGradient[2][$i], $nightGradient[2][$i], $mouseHeight, 0.25, 3);
+                $currentGradient[3][$i] = getGradient($sunriseGradient[3][$i], $nightGradient[3][$i], $mouseHeight, 0.25, 3);
+                $currentGradient[4][$i] = getGradient($sunriseGradient[4][$i], $nightGradient[4][$i], $mouseHeight, 0.25, 3);
+              }
 
-              $c1[0] = Math.round( $sunrise1[0] + ( $night1[0] - $sunrise1[0]) * ( ($mouseHeight / (heroHeight * 0.25) - 3 ) ) );
-              $c1[1] = Math.round( $sunrise1[1] + ( $night1[1] - $sunrise1[1]) * ( ($mouseHeight / (heroHeight * 0.25) - 3 ) ) );
-              $c1[2] = Math.round( $sunrise1[2] + ( $night1[2] - $sunrise1[2]) * ( ($mouseHeight / (heroHeight * 0.25) - 3 ) ) );
-              $c1[3] = Math.round( $sunrise1[3] + ( $night1[3] - $sunrise1[3]) * ( ($mouseHeight / (heroHeight * 0.25) - 3 ) ) ); 
-
-              $c2[0] = Math.round( $sunrise2[0] + ( $night2[0] - $sunrise2[0]) * ( ($mouseHeight / (heroHeight * 0.25) - 3 ) ) );
-              $c2[1] = Math.round( $sunrise2[1] + ( $night2[1] - $sunrise2[1]) * ( ($mouseHeight / (heroHeight * 0.25) - 3 ) ) );
-              $c2[2] = Math.round( $sunrise2[2] + ( $night2[2] - $sunrise2[2]) * ( ($mouseHeight / (heroHeight * 0.25) - 3 ) ) );
-              $c2[3] = Math.round( $sunrise2[3] + ( $night2[3] - $sunrise2[3]) * ( ($mouseHeight / (heroHeight * 0.25) - 3 ) ) ); 
-
-              $c3[0] = Math.round( $sunrise3[0] + ( $night3[0] - $sunrise3[0]) * ( ($mouseHeight / (heroHeight * 0.25) - 3 ) ) );
-              $c3[1] = Math.round( $sunrise3[1] + ( $night3[1] - $sunrise3[1]) * ( ($mouseHeight / (heroHeight * 0.25) - 3 ) ) );
-              $c3[2] = Math.round( $sunrise3[2] + ( $night3[2] - $sunrise3[2]) * ( ($mouseHeight / (heroHeight * 0.25) - 3 ) ) );
-              $c3[3] = Math.round( $sunrise3[3] + ( $night3[3] - $sunrise3[3]) * ( ($mouseHeight / (heroHeight * 0.25) - 3 ) ) );
-
-              $c4[0] = Math.round( $sunrise4[0] + ( $night4[0] - $sunrise4[0]) * ( ($mouseHeight / (heroHeight * 0.25) - 3 ) ) );
-              $c4[1] = Math.round( $sunrise4[1] + ( $night4[1] - $sunrise4[1]) * ( ($mouseHeight / (heroHeight * 0.25) - 3 ) ) );
-              $c4[2] = Math.round( $sunrise4[2] + ( $night4[2] - $sunrise4[2]) * ( ($mouseHeight / (heroHeight * 0.25) - 3 ) ) );
-              $c4[3] = Math.round( $sunrise4[3] + ( $night4[3] - $sunrise4[3]) * ( ($mouseHeight / (heroHeight * 0.25) - 3 ) ) ); 
-
-              $c5[0] = Math.round( $sunrise5[0] + ( $night5[0] - $sunrise5[0]) * ( ($mouseHeight / (heroHeight * 0.25) - 3 ) ) );
-              $c5[1] = Math.round( $sunrise5[1] + ( $night5[1] - $sunrise5[1]) * ( ($mouseHeight / (heroHeight * 0.25) - 3 ) ) );
-              $c5[2] = Math.round( $sunrise5[2] + ( $night5[2] - $sunrise5[2]) * ( ($mouseHeight / (heroHeight * 0.25) - 3 ) ) );
-              $c5[3] = Math.round( $sunrise5[3] + ( $night5[3] - $sunrise5[3]) * ( ($mouseHeight / (heroHeight * 0.25) - 3 ) ) ); 
-
-              setBgColors($c1, $c2, $c3, $c4, $c5); 
+              setBgColors($currentGradient[0], $currentGradient[1], $currentGradient[2], $currentGradient[3], $currentGradient[4]); 
 
               $opacity = $mouseHeight / (heroHeight * 0.25) - 3;
               $('#stars').css({
@@ -755,7 +723,7 @@
       $counter =  $(window).height();
       $steps = $counter / 400;
 
-      $countMe = setInterval(
+      $countMe = setInterval (
         function(){
           if($counter >  ( $(window).height() * 0.75) ){
             simulateTheSun($counter);
